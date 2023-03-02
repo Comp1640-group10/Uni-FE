@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import {
-    FaBars,
-    FaCommentAlt,
     FaHome,
-    FaRegChartBar,
-    FaShoppingBag,
+    FaBars,
+    FaUserCog,
     FaThList,
-    FaUserAlt,
+    FaUsersCog,
+    FaClipboardList,
+    FaVoteYea,
+    FaSitemap,
+    FaChartLine,
+
 } from 'react-icons/fa'
 import { NavLink } from 'react-router-dom';
 
@@ -20,29 +23,39 @@ const Sidebar = ({ children }) => {
             icon: <FaHome />
         },
         {
-            path: '/about',
-            name: 'About',
-            icon: <FaUserAlt />
-        },
-        {
-            path: '/analytics',
-            name: 'Analytics',
-            icon: <FaRegChartBar />
-        },
-        {
-            path: '/comment',
-            name: 'Comment',
-            icon: <FaCommentAlt />
-        },
-        {
-            path: '/product',
-            name: 'Product',
-            icon: <FaShoppingBag />
-        },
-        {
-            path: '/productList',
-            name: 'ProductList',
+            path: '/category',
+            name: 'category',
             icon: <FaThList />
+        },
+        {
+            path: '/Department',
+            name: 'department',
+            icon: <FaSitemap />
+        },
+        {
+            path: '/Management',
+            name: 'management',
+            icon: <FaUsersCog />
+        },
+        {
+            path: '/Role',
+            name: 'role',
+            icon: <FaUserCog />
+        },
+        {
+            path: '/StaffSubmission',
+            name: 'Staff Submission',
+            icon: <FaClipboardList />
+        },
+        {
+            path: '/Statistics',
+            name: 'Statistics',
+            icon: <FaChartLine />
+        },
+        {
+            path: '/Submission',
+            name: 'Submission',
+            icon: <FaVoteYea />
         },
     ]
     return (
