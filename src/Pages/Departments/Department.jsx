@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -6,25 +5,23 @@ import {
     FaEdit,
     FaInfoCircle
 } from 'react-icons/fa'
-import './Category.css'
-import { NavLink } from 'react-router-dom';
-
-const Category = () => {
-    const categoryitem = [
+import './Department.css'
+const Department = () => {
+    const departmentitem = [
         {
-            name: 'staff 1',
+            name: 'Department 01',
             delete: <FaTrash />,
             edit: <FaEdit />,
             detail: <FaInfoCircle />
         },
         {
-            name: 'staff 2',
+            name: 'Department 02',
             delete: <FaTrash />,
             edit: <FaEdit />,
             detail: <FaInfoCircle />
         },
         {
-            name: 'staff 3',
+            name: 'Department 03',
             delete: <FaTrash />,
             edit: <FaEdit />,
             detail: <FaInfoCircle />
@@ -32,12 +29,13 @@ const Category = () => {
 
     ]
     return (
-        <div className='wrapper'>
+
+        <div className=''>
 
             <div className='category'>
                 <h3>Category Page</h3>
                 {
-                    categoryitem.map((category, index) => (
+                    departmentitem.map((category, index) => (
                         <div className='icons'>
                             <div className='name'>{category.name}</div>
                             <div className='icon-cate'>{category.edit} {category.delete} {category.detail}</div>
@@ -50,4 +48,4 @@ const Category = () => {
     )
 };
 
-export default Category;
+export default Department;
