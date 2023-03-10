@@ -1,31 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-align: none;
-}
-
-.container {
-  display: flex;
-}
-
-main {
-  width: 100%;
-  padding: 20px;
-
-}
-
 .sidebar {
   background: #000;
   color: #fff;
   height: 100vh;
-  width: 300px;
 }
 
 .top_section {
   display: flex;
   align-items: center;
   padding: 20px 15px;
-
 }
 
 .logo {
@@ -44,7 +26,6 @@ main {
   padding: 10px 15px;
   gap: 15px;
   transition: all 0.5s;
-
 }
 
 .link:hover {
@@ -61,5 +42,4 @@ main {
 .icon,
 .link_text {
   font-size: 20px;
-
 }
