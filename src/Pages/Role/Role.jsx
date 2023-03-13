@@ -31,7 +31,7 @@ const Role = () => {
         <div className=''>
 
             <div className='category'>
-                <h3>Category Page</h3>
+                <h3>Role Page</h3>
                 {
                     roleitem.map((role, index) => (
                         <div className='icons'>
