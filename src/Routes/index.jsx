@@ -9,6 +9,7 @@ import Management from "../Pages/Management/Management";
 import NewCategory from "../Pages/Categories/NewCategory";
 import NewDepartment from "../Pages/Departments/NewDepartment";
 import Role from "../Pages/Role/Role";
+import NewRole from "../Pages/Role/NewRole";
 import StaffSubmission from "../Pages/StaffSubmission/StaffSubmission";
 import Statistics from "../Pages/Statistics/Statistics";
 import Submission from "../Pages/Submission/Submission";
@@ -21,10 +22,11 @@ const publicRoutes = [
   { path: "/department", component: Department },
   { path: "/newdepartment", component: NewDepartment },
   { path: "/role", component: Role },
+  { path: "/newrole", component: NewRole },
   { path: "/staffsubmission", component: StaffSubmission },
   { path: "/management", component: Management },
   { path: "/statistics", component: Statistics },
   { path: "/submission", component: Submission },
 ];
 
-export {publicRoutes}
+export { publicRoutes }

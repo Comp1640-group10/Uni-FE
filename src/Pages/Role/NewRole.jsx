@@ -2,7 +2,7 @@ function NewDepartment() {
   return (
     <div className="">
       <div className="category">
-        <h3>new Department</h3>
+        <h3>new Role</h3>
         <div className="input-page">
           <div className="input_id">
             <h4>Id</h4>
