@@ -1,43 +1,62 @@
 /* eslint-disable no-undef */
-import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { FaTrash, FaEdit, FaInfoCircle } from "react-icons/fa";
+import React, { useState } from "react";
 import "./Category.css";
-import { NavLink } from "react-router-dom";
+import { FaTrash, FaEdit, FaInfoCircle } from "react-icons/fa";
+// import "bootstrap/dist/css/bootstrap.min.css";
 
 const Category = () => {
-  const categoryitem = [
-    {
-      name: "staff 1",
-      delete: <FaTrash />,
-      edit: <FaEdit />,
-      detail: <FaInfoCircle />,
-    },
-    {
-      name: "staff 2",
-      delete: <FaTrash />,
-      edit: <FaEdit />,
-      detail: <FaInfoCircle />,
-    },
-    {
-      name: "staff 3",
-      delete: <FaTrash />,
-      edit: <FaEdit />,
-      detail: <FaInfoCircle />,
-    },
-  ];
+  const [categoryitem, setCategoryItem] = useState([
+  ])
+
+  const [newAdd, setNewAdd] = useState('')
+  const handleSubmit = () => {
+    setCategoryItem(prev => [...prev, newAdd])
+    setNewAdd('')
+  }
+  const deleteItem = (index) => {
+    let newAdds = categoryitem.splice(index, 1)
+    setNewAdd(newAdds);
+  }
+
   return (
-    <div className="">
-      <div className="category">
-        <h3>Category Page</h3>
-        {categoryitem.map((category, index) => (
-          <div className="icons">
-            <div className="name">{category.name}</div>
-            <div className="icon-cate">
-              {category.edit} {category.delete} {category.detail}
-            </div>
+    <div>
+      <h1>Category Page</h1>
+      <div className="categories">
+
+        <div className="input-page">
+          <div className="input">
+            <h3>name category</h3>
+            <input
+              type="text"
+              placeholder="add new category"
+              size="50"
+              maxLength="50"
+              value={newAdd}
+              onChange={(e) => setNewAdd(e.target.value)}
+            />
           </div>
-        ))}
+          <div className="btn">
+            <button onClick={handleSubmit}>add new</button>
+          </div>
+        </div>
+
+        <div className="wrapper">
+          <div className='categories'>
+            <h1>Category Page</h1>
+            {categoryitem && categoryitem.length ? '' : 'No Item...'}
+            {
+              categoryitem.map((newAdd, index) => (
+                <div className='icons' key={index}>
+                  <div className='name' title='name'>{newAdd}</div>
+                  <div className='icon-cate'>
+                    <span title="edit"><FaEdit /></span>
+                    <span title="delete" onClick={() => deleteItem(index)}><FaTrash /></span>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </div>
   );
