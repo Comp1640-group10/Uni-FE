@@ -9,8 +9,7 @@
     display: flex;
 }
 
-.category {
-    height: 100vh;
+.Submission {
     width: 100%;
 }
 
@@ -60,4 +59,12 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 10px;
+}
+
+.input input {
+    background: #7d7979;
+    color: #fff;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 20px;
 }

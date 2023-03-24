@@ -9,14 +9,14 @@
     display: flex;
 }
 
-.category {
-    height: 100vh;
+.department {
     width: 100%;
 }
 
-.wrapper h3 {
+.wrapper h1 {
     text-align: center;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 .icons {
@@ -26,12 +26,13 @@
     margin-bottom: 30px;
     background: #c589ed;
     border-radius: 20px;
+    margin-left: 20px;
 }
 
 .name {
     font-size: 25px;
     font-weight: bold;
-
+    padding: 20px;
 }
 
 .icon-cate {
@@ -60,4 +61,18 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 10px;
+}
+
+.link-department {
+    margin: 50px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input input {
+    background: #7d7979;
+    color: #fff;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 20px;
 }
