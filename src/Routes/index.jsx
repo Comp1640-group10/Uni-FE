@@ -5,11 +5,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Category from "../Pages/Categories/Category";
 import Department from "../Pages/Departments/Department";
-import Management from "../Pages/Management/Management";
-import NewCategory from "../Pages/Categories/NewCategory";
-import NewDepartment from "../Pages/Departments/NewDepartment";
 import Role from "../Pages/Role/Role";
-import NewRole from "../Pages/Role/NewRole";
 import StaffSubmission from "../Pages/StaffSubmission/StaffSubmission";
 import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
 import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
@@ -51,12 +47,9 @@ import StaffSubmissionPage2 from "../StaffPages2/StaffSubmissionPage2/StaffSubmi
 const publicRoutes = [
   { path: "/", component: Home },
   { path: "/category", component: Category },
-  { path: "/newcategory", component: NewCategory },
   { path: "/login", component: Login },
   { path: "/department", component: Department },
-  { path: "/newdepartment", component: NewDepartment },
   { path: "/role", component: Role },
-  { path: "/newrole", component: NewRole },
   { path: "/staffsubmission", component: StaffSubmission },
   { path: "/liststaffsubmission", component: ListStaffSubmission },
   { path: "/detailsstaffsubmission", component: DetailsStaffSubmission },

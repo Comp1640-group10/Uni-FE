@@ -9,8 +9,7 @@
     display: flex;
 }
 
-.category {
-    height: 100vh;
+.role {
     width: 100%;
 }
 
@@ -28,7 +27,12 @@
     border-radius: 20px;
 }
 
-.name .id {
+.name {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.id {
     font-size: 25px;
     font-weight: bold;
 
@@ -42,6 +46,7 @@
 
 .input-page {
     text-align: center;
+
 }
 
 .input_name .input_id {
@@ -60,4 +65,34 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 10px;
+}
+
+.input_id {
+    margin: 20px;
+}
+
+.input_name {
+    margin: 20px;
+}
+
+.input_name input {
+    background: #7d7979;
+    color: #fff;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+
+.link-role {
+    margin: 50px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.input_id input {
+    background: #7d7979;
+    color: #fff;
+    height: 35px;
+    border-radius: 20px;
+    padding-left: 20px;
 }
