@@ -72,8 +72,7 @@ const publicRoutes = [
   { path: "/role1", component: Role1 },
   { path: "/createrole", component: CreateRole },
   { path: "/staffsubmission1", component: StaffSubmission1 },
-  { path: "/liststaffsubmission1", component: ListStaffSubmission1 },
-  { path: "/detailsstaffsubmission1", component: DetailsStaffSubmission1 },
+
   { path: "/statistics1", component: Statistics1 },
   { path: "/submission1", component: Submission1 },
   { path: "/createsubmission", component: CreateSubmission },
