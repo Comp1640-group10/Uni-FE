@@ -33,11 +33,7 @@ const Sidebar = ({ children }) => {
       name: "department",
       icon: <FaSitemap />,
     },
-    {
-      path: "/Management",
-      name: "management",
-      icon: <FaUsersCog />,
-    },
+
     {
       path: "/Role",
       name: "role",
