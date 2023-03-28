@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+
 import {
     FaTrash,
     FaEdit,
     FaInfoCircle
 } from 'react-icons/fa'
 import './Submission.css'
+
+
 const Submission = () => {
+    // const { submission } = (props);
     const [submissionitem, setSubmissionItem] = useState([{
         name: 'meet',
         deadline_1: '03/11/2022',
@@ -93,14 +97,13 @@ const Submission = () => {
                 {
                     submissionitem.map((submission, index) => (
                         <div className='icons'>
-                            <div className='name'>{submission.name}</div>
+                            <div className='name' name='name'>{submission.name}</div>
                             <div className='deadline_1'>{submission.deadline_1}</div>
                             <div className='deadline_2'>{submission.deadline_2}</div>
                             <div className='icon-cate'>
                                 <span title="edit"><FaEdit /></span>
                                 <span title="delete" onClick={() => deleteItem(index)}><FaTrash /></span>
-                                <span title="detail" ><FaInfoCircle /></span>
-
+                                <span title="detail"><FaInfoCircle /></span>
                             </div>
                         </div>
                     ))

@@ -1,10 +1,24 @@
 import React from 'react';
-
-const StaffSubmission = () => {
+import { NavLink } from 'react-router-dom';
+import '../Submission/Submission'
+import {
+    FaFileExcel,
+    FaFolder,
+    FaInfoCircle
+} from 'react-icons/fa'
+import './StaffSubmission.css'
+const StaffSubmission = (props) => {
     return (
-        <div>
-            <h1>StaffSubmission Page</h1>
+
+        <div className='icons'>
+            <div className='name'>{props.name}</div>
+            <div className='icon-cate'>
+                <span title="detail" ><NavLink to='/listOfIdeas' ><FaInfoCircle /></NavLink></span>
+                <span title="folder" ><FaFolder /></span>
+                <span title="excel" ><FaFileExcel /></span>
+            </div>
         </div>
+
     );
 };
 

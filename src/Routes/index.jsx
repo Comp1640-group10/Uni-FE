@@ -7,6 +7,7 @@ import Category from "../Pages/Categories/Category";
 import Department from "../Pages/Departments/Department";
 import Role from "../Pages/Role/Role";
 import StaffSubmission from "../Pages/StaffSubmission/StaffSubmission";
+import ListofIdeas from "../Pages/StaffSubmission/ListofIdeas";
 import Statistics from "../Pages/Statistics/Statistics";
 import Submission from "../Pages/Submission/Submission";
 
@@ -17,6 +18,7 @@ const publicRoutes = [
   { path: "/department", component: Department },
   { path: "/role", component: Role },
   { path: "/staffsubmission", component: StaffSubmission },
+  { path: "/listOfIdeas", component: ListofIdeas },
   { path: "/statistics", component: Statistics },
   { path: "/submission", component: Submission },
 ];

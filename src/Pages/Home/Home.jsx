@@ -6,10 +6,12 @@ import {
 } from 'react-icons/fa'
 const Home = () => {
     const [homeItem, sethomeItem] = useState([{
-        name: 'staff1@fpt.edu.vn',
+        email: 'staff1@fpt.edu.vn',
     }]);
     const [newAdd, setNewAdd] = useState({
         name: '',
+        email: '',
+        password: ''
     })
     const handleChange = (event) => {
         event.preventDefault();
@@ -25,6 +27,8 @@ const Home = () => {
         event.preventDefault();
         const newAddItem = {
             name: newAdd.name,
+            email: newAdd.email,
+            password: newAdd.password,
         }
         const newAddItems = [...homeItem, newAddItem]
         sethomeItem(newAddItems)
@@ -51,6 +55,30 @@ const Home = () => {
                             onChange={handleChange}
                         />
                     </div>
+                    <div className="input_name">
+                        <h3>Email Submission</h3>
+                        <input
+                            type="text"
+                            placeholder="add new submission"
+                            size="50"
+                            maxLength="50"
+                            name='email'
+                            required='required'
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="input_name">
+                        <h3>PassWord Submission</h3>
+                        <input
+                            type='password'
+                            placeholder="add new submission"
+                            size="50"
+                            maxLength="50"
+                            name='PassWord'
+                            required='required'
+                            onChange={handleChange}
+                        />
+                    </div>
                     <div className="btn">
                         <button type='submit'>add new</button>
                     </div>
@@ -62,7 +90,7 @@ const Home = () => {
                 {
                     homeItem.map((home, index) => (
                         <div className='icons'>
-                            <div className='name'>{home.name}</div>
+                            <div className='name'>{home.email}</div>
                             <div className='icon-cate'>
                                 <span title="edit"><FaEdit /></span>
                                 <span title="delete" onClick={() => deleteItem(index)}><FaTrash /></span>
