@@ -1,100 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import {
     FaTrash,
     FaEdit,
 } from 'react-icons/fa'
 import './Role.css'
-const Role = () => {
-    const [roleitem, setRoleItem] = useState(
-        [{
-            id: 'admin',
-            name: 'admin'
-        }]
-    )
+import { NavLink } from 'react-router-dom';
+import { Button, } from 'reactstrap';
+import { GlobalContext } from '../../Context/GlobalState';
+function Role() {
+    const { role, removeRole } = useContext(GlobalContext);
+    console.log(role)
 
-    const [newAdd, setNewAdd] = useState({
-        id: '',
-        name: ''
-    })
-    const handleChange = (event) => {
-        event.preventDefault();
-        const fieldName = event.target.getAttribute('name');
-        const fieldValue = event.target.value;
-
-        const newFormAdd = { ...newAdd };
-        newFormAdd[fieldName] = fieldValue
-        setNewAdd(newFormAdd);
-
-    }
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const newAddItem = {
-            id: newAdd.id,
-            name: newAdd.name
-        }
-        const newAddItems = [...roleitem, newAddItem]
-        setRoleItem(newAddItems)
-
-    }
-    const deleteItem = (index) => {
-        let newAdds = roleitem.splice(index, 1)
-        setNewAdd(newAdds);
-    }
     return (
-        <div >
-            <h1>Role page</h1>
-            <form onSubmit={handleSubmit} className="Role">
-                <div className="input-page">
-                    <div className="input_id">
-                        <h3>Id</h3>
-                        <input
-                            type="text"
-                            placeholder="add new department"
-                            size="50"
-                            maxLength="50"
-                            name='id'
-                            required='required'
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="input_name">
-                        <h3>name Role</h3>
-                        <input
-                            type="text"
-                            placeholder="add new department"
-                            size="50"
-                            maxLength="50"
-                            name='name'
-                            required='required'
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="btn">
-                        <button type='submit'>add new</button>
-                    </div>
-                </div>
-            </form>
-            <div className='wrapper'>
+        <div className=''>
 
-                <div className='role'>
-                    {roleitem && roleitem.length ? '' : 'No Item...'}
-                    {
-                        roleitem.map((roleitem, index) => (
-                            <div className='icons' key={index}>
-                                <div className='id' > {roleitem.id}</div>
-                                <div className='name'>{roleitem.name}</div>
-                                <div className='icon-cate'>
-                                    <span title="edit"><FaEdit /></span>
-                                    <span title="delete" onClick={() => deleteItem(index)}><FaTrash /></span>
-                                </div>
-                            </div>
-                        ))
+            <h1>Submission page</h1>
 
-                    }
+            <div className='role'>
+
+                <div className='btn'>
+                    <Button>
+                        <NavLink to='/addRole'>
+                            new add
+                        </NavLink>
+                    </Button>
                 </div>
+
+                {role && role.length ? '' : 'No Item...'}
+                {role.map((role) => (
+                    <div className='icons' key={role.id}>
+                        <div className='id'> {role.id}</div>
+                        <div className='name'>{role.name}</div>
+                        <div className='icon-cate'>
+                            <NavLink to={`/editRole/${role.id}`}><span title="edit"><FaEdit /></span></NavLink>
+                            <span title="delete" onClick={() => removeRole(role.id)}><FaTrash /></span>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default Role;

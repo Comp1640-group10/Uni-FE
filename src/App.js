@@ -1,40 +1,44 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import { Fragment } from "react";
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { GlobalProvider } from "./Context/GlobalState";
 import { publicRoutes } from "./Routes/index.jsx";
 import { DefaultLayout } from "./Components/Layouts";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          {publicRoutes.map((route, index) => {
-            const Page = route.component;
-            let Layout = DefaultLayout;
-            if (route.layout) {
-              Layout = route.layout;
-            } else if (route.layout === null) {
-              Layout = Fragment;
-            }
+    <div>
 
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                element={
-                  <Layout>
-                    <Page />
-                  </Layout>
+      <GlobalProvider>
+        <Router>
+          <div className="App">
+            <Routes>
+              {publicRoutes.map((route, index) => {
+                const Page = route.component;
+                let Layout = DefaultLayout;
+                if (route.layout) {
+                  Layout = route.layout;
+                } else if (route.layout === null) {
+                  Layout = Fragment;
                 }
-              />
-            );
-          })}
-        </Routes>
-      </div>
-    </Router>
+
+                return (
+                  <Route
+                    key={index}
+                    path={route.path}
+                    element={
+                      <Layout>
+                        <Page />
+                      </Layout>
+                    }
+                  />
+                );
+              })}
+            </Routes>
+          </div>
+        </Router>
+      </GlobalProvider>
+    </div>
   );
 }
 

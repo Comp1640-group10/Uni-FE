@@ -1,67 +1,45 @@
-import React, { useState } from 'react';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useContext } from 'react';
+import { GlobalContext } from '../../Context/GlobalState';
+
 import {
     FaTrash,
     FaEdit,
-    FaInfoCircle
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 import './Department.css'
-const Department = () => {
-    const [departmentitem, setDepartmentItem] = useState([
-    ])
+import { NavLink } from 'react-router-dom';
+import { Button, } from 'reactstrap';
 
-    const [newAdd, setNewAdd] = useState('')
-    const handleSubmit = () => {
-        setDepartmentItem(prev => [...prev, newAdd])
-        setNewAdd('')
-    }
-    const deleteItem = (index) => {
-        let newAdds = departmentitem.splice(index, 1)
-        setNewAdd(newAdds);
-    }
+function Department() {
+    const { department, removeDepartment } = useContext(GlobalContext);
+    console.log(department)
     return (
-        <div>
-            <h1>Department Page</h1>
-            <div className="department">
 
-                <div className="input-page">
-                    <div className="input">
-                        <h3>name category</h3>
-                        <input
-                            type="text"
-                            placeholder="add new department"
-                            size="50"
-                            maxLength="50"
-                            value={newAdd}
-                            onChange={(e) => setNewAdd(e.target.value)}
-                        />
-                    </div>
-                    <div className="btn">
-                        <button onClick={handleSubmit}>add new</button>
-                    </div>
+        <div className=''>
+
+            <h1>Department page</h1>
+
+            <div className='department'>
+
+                <div className='btn'>
+                    <Button>
+                        <NavLink to='/addDepartment'>
+                            new add
+                        </NavLink>
+                    </Button>
                 </div>
-            </div>
-
-            <div className='Wrapper'>
-                <div className='department'>
-                    <h1>Department Page</h1>
-                    {departmentitem && departmentitem.length ? '' : 'No Item...'}
-                    {
-                        departmentitem.map((newAdd, index) => (
-                            <div className='icons' key={index}>
-                                <div className='name' title='name'>{newAdd}</div>
-                                <div className='icon-cate'>
-                                    <span title="edit"><FaEdit /></span>
-                                    <span title="delete" onClick={() => deleteItem(index)}><FaTrash /></span>
-                                </div>
-                            </div>
-                        ))
-
-                    }
-                </div>
+                {department && department.length ? '' : 'No Item...'}
+                {department.map((department) => (
+                    <div className='icons' >
+                        <strong key={department.id}>{department.name}</strong>
+                        <div className='icon-cate'>
+                            <NavLink to={`/editDepartment/${department.id}`}><span title="edit"><FaEdit /></span></NavLink>
+                            <span title="delete" onClick={() => removeDepartment(department.id)}><FaTrash /></span>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
-    )
-};
+    );
+}
 
 export default Department;
