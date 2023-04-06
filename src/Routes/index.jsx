@@ -1,7 +1,7 @@
 //Layouts
 
 //Pages
-import User from "../Pages/Home/user";
+import User from "../Pages/Home/User";
 import AddUser from "../Pages/Home/AddUser";
 import EditUser from "../Pages/Home/EditUser";
 import Login from "../Pages/Login/Login";
