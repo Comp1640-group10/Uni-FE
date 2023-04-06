@@ -1,22 +1,22 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../../Context/GlobalState';
-
-import {
-    FaTrash,
-    FaEdit,
-} from 'react-icons/fa'
-import './Submission.css'
 import { NavLink } from 'react-router-dom';
+import '../Submission/Submission'
+import {
+    FaFileExcel,
+    FaFolder,
+    FaInfoCircle
+} from 'react-icons/fa'
+import './StaffSubmission.css'
+import { GlobalContext } from '../../Context/GlobalState';
 import { Button, } from 'reactstrap';
-
-function Submission() {
-    const { submission, removeSubmission } = useContext(GlobalContext);
+function StaffSubmission(props) {
+    const { submission } = useContext(GlobalContext);
     console.log(submission)
     return (
 
         <div className=''>
 
-            <h1>Submission page</h1>
+            <h1>Staff Submission page</h1>
 
             <div className='Submission'>
 
@@ -34,8 +34,10 @@ function Submission() {
                         <div className='deadline_1'>{submission.deadline_1}</div>
                         <div className='deadline_2'>{submission.deadline_2}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/editSubmission/${submission.id}`}><span title="edit"><FaEdit /></span></NavLink>
-                            <span title="delete" onClick={() => removeSubmission(submission.id)}><FaTrash /></span>
+                            <NavLink to={`/listOfIdeas/${submission.id}`}><span title="detail"><FaInfoCircle /></span></NavLink>
+                            <span title="excel" ><FaFileExcel /></span>
+                            <span title="folder" ><FaFolder /></span>
+
                         </div>
                     </div>
                 ))}
@@ -44,4 +46,4 @@ function Submission() {
     );
 }
 
-export default Submission;
+export default StaffSubmission;

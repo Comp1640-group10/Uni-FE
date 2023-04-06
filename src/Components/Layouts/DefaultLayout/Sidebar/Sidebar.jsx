@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import {
   FaHome,
-  FaBars,
-  FaUserCog,
-  FaThList,
-  FaUsersCog,
-  FaClipboardList,
   FaVoteYea,
+  FaBars,
   FaSitemap,
+  FaUserCog,
   FaChartLine,
+  FaClipboardList,
+  FaThList,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 import "./Sidebar.scss";
 
-const Sidebar = ({ children }) => {
+function Sidebar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const menuItem = [
@@ -50,8 +49,8 @@ const Sidebar = ({ children }) => {
       icon: <FaChartLine />,
     },
     {
-      path: "/Submission",
-      name: "Submission",
+      path: "/submission",
+      name: "submission",
       icon: <FaVoteYea />,
     },
   ];
@@ -86,6 +85,6 @@ const Sidebar = ({ children }) => {
       <main>{children}</main>
     </div>
   );
-};
+}
 
 export default Sidebar;

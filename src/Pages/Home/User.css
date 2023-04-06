@@ -9,7 +9,7 @@
     display: flex;
 }
 
-.role {
+.user {
     width: 100%;
 }
 
@@ -25,14 +25,10 @@
     margin-bottom: 30px;
     background: #c589ed;
     border-radius: 20px;
+
 }
 
-.name {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.id {
+.name .deadline_2 .deadline_1 {
     font-size: 25px;
     font-weight: bold;
 
@@ -41,15 +37,18 @@
 .icon-cate {
     margin: 10px;
     font-size: 25px;
+    padding: 10px;
+}
 
+.icon-cate span {
+    margin-left: 10px;
 }
 
 .input-page {
     text-align: center;
-
 }
 
-.input_name .input_id {
+.input {
     padding: 20px;
     width: 100%;
 
@@ -67,29 +66,7 @@
     border-radius: 10px;
 }
 
-.input_id {
-    margin: 20px;
-}
-
-.input_name {
-    margin: 20px;
-}
-
-.input_name input {
-    background: #7d7979;
-    color: #fff;
-    height: 35px;
-    border-radius: 20px;
-    padding-left: 20px;
-}
-
-.link-role {
-    margin: 50px 20px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.input_id input {
+.input input {
     background: #7d7979;
     color: #fff;
     height: 35px;
