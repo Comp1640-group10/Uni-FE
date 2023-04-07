@@ -4,8 +4,9 @@
   align-items: center;
 }
 
-.container {
+.sidebar-container {
   display: flex;
+  overflow: hidden;
 }
 
 .content {

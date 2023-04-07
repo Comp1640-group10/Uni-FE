@@ -25,8 +25,7 @@ body {
   font-size: 1.6rem;
   line-height: 1.5;
   text-rendering: optimizespeed;
-  color: var(--text-color) ;
-
+  color: var(--text-color);
 }
 
 button,
@@ -37,6 +36,5 @@ input,
 }
 
 a[href] {
-  color: var(--text-color) ;
   text-decoration: none;
 }
