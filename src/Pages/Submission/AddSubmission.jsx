@@ -12,13 +12,10 @@ import { GlobalContext } from '../../Context/GlobalState';
 import { v4 as uuid } from 'uuid'
 
 function AddSubmission() {
-    const [name, setName] = useState({
-        id: '',
-        name: '',
-        deadline_1: '',
-        deadline_2: '',
+    const [name, setName] = useState('');
+    const [date1, setDate1] = useState('');
+    const [date2, setDate2] = useState('');
 
-    });
     const { addSubmission } = useContext(GlobalContext);
     const navigate = useNavigate();
 
@@ -26,9 +23,9 @@ function AddSubmission() {
 
         const newSubmission = {
             id: uuid(),
-            name: name.name,
-            deadline_1: name.deadline_1,
-            deadline_2: name.deadline_2,
+            name: name,
+            deadline_1: date1,
+            deadline_2: date2,
         };
         addSubmission(newSubmission);
         navigate("/submission");
@@ -44,11 +41,11 @@ function AddSubmission() {
                 </div>
                 <div className='deadline_1'>
                     <Label>deadline_1</Label>
-                    <Input type='date' placeholder='Enter Name Staff' value={name.deadline_1} onChange={(e) => setName(e.target.value)}></Input>
+                    <Input type='date' placeholder='Enter Name Staff' value={date1} onChange={(e) => setDate1(e.target.value)}></Input>
                 </div>
                 <div className='deadline_2'>
                     <Label>deadline_2</Label>
-                    <Input type='date' placeholder='Enter Name Staff' value={name.deadline_2} onChange={(e) => setName(e.target.value)}></Input>
+                    <Input type='date' placeholder='Enter Name Staff' value={date2} onChange={(e) => setDate2(e.target.value)}></Input>
                 </div>
             </FormGroup>
             <div className='btn'>
