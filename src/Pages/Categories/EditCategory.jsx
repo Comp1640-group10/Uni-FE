@@ -7,7 +7,7 @@ import {
     Input,
     Button,
 } from 'reactstrap';
-import './Addsubmission.scss';
+import './AddCategory.scss';
 import { GlobalContext } from '../../Context/GlobalState';
 
 function AddSubmission(props) {

@@ -1,11 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    text-align: none;
-}
-
 .wrapper {
-
     display: flex;
 }
 
@@ -25,6 +18,7 @@
     margin-bottom: 30px;
     background: #c589ed;
     border-radius: 20px;
+    margin-left: 20px;
 }
 
 .name {
