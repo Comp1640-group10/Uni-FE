@@ -55,8 +55,8 @@ function Sidebar({ children }) {
     },
   ];
   return (
-    <div>
-      <div style={{ width: isOpen ? "300px" : "50px" }} className="sidebar">
+    <div style={{ height: "1080px" }}>
+      <div style={{ width: isOpen ? "300px" : "50px", height:'100%' }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             Logo{" "}
@@ -81,8 +81,8 @@ function Sidebar({ children }) {
             </div>
           </NavLink>
         ))}
+        <main>{children}</main>
       </div>
-      <main>{children}</main>
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default class Login extends Component {
         <div className="login-background">
           <div>
             <div className="login-form">
-              <h3>Login</h3>
+              <h3 className="login-title">Login</h3>
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
                   <label for="username">Username</label>
@@ -39,7 +39,7 @@ export default class Login extends Component {
                     id="password"
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="submit-btn btn btn-primary">
                   Login
                 </button>
               </form>
