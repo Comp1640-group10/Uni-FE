@@ -4,6 +4,7 @@
 import User from "../Pages/Home/User";
 import AddUser from "../Pages/Home/AddUser";
 import EditUser from "../Pages/Home/EditUser";
+import ViewUser from "../Pages/Home/ViewUser";
 import Login from "../Pages/Login/Login";
 import Category from "../Pages/Categories/Category";
 import AddCategory from "../Pages/Categories/AddCategory";
@@ -20,6 +21,8 @@ import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmiss
 import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
 import Statistics from "../Pages/Statistics/Statistics";
 import Submission from "../Pages/Submission/Submission";
+import AddSubmission from "../Pages/Submission/AddSubmission";
+import EditSubmission from "../Pages/Submission/EditSubmission";
 // Staff Page 1
 import HomePageStaff1 from "../StaffPages1/Home/HomePageStaff1";
 import AccountStaff1 from "../StaffPages1/AccountStaff1/AccountStaff1";
@@ -41,8 +44,7 @@ import PersonalData from "../StaffPages2/AccountInfo/PersonalData";
 import StaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/StaffSubmissionPage";
 import ListStaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/ListStaffSubmissionPage";
 import DetailsStaffSubmissionPage from "../StaffPages1/StaffSubmissionPage1/DetailsStaffSubmission1";
-import AddSubmission from "../Pages/Submission/AddSubmission";
-import EditSubmission from "../Pages/Submission/EditSubmission";
+
 
 
 
@@ -51,6 +53,7 @@ const publicRoutes = [
   { path: "/", component: User },
   { path: "/addUser", component: AddUser },
   { path: "/editUser/:id", component: EditUser },
+  { path: "/viewUser/:id", component: ViewUser },
   { path: "/category", component: Category },
   { path: "/addCategory", component: AddCategory },
   { path: "/editCategory/:id", component: EditCategory },
@@ -67,6 +70,8 @@ const publicRoutes = [
   { path: "/listOfIdeas/:id", component: ListofIdeas },
   { path: "/statistics", component: Statistics },
   { path: "/submission", component: Submission },
+  { path: "/addSubmission", component: AddSubmission },
+  { path: "/editSubmission/:id", component: EditSubmission },
   // Staff Page 1
   { path: "/homepagestaff1", component: HomePageStaff1 },
   { path: "/staffsubmission1", component: StaffSubmission1 },
@@ -88,8 +93,7 @@ const publicRoutes = [
   { path: "/staffsubmissionpage1", component: StaffSubmissionPage },
   { path: "/liststaffsubmissionpage", component: ListStaffSubmissionPage },
   { path: "/detailsstaffsubmissionpage", component: DetailsStaffSubmissionPage },
-  { path: "/addSubmission", component: AddSubmission },
-  { path: "/editSubmission/:id", component: EditSubmission },
+
 ];
 
 export { publicRoutes }

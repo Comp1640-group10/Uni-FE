@@ -1,4 +1,4 @@
-
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state, action) => {
 
     switch (action.type) {
@@ -54,16 +54,17 @@ export default (state, action) => {
             }
         case "EDIT_SUBMISSION":
 
-            const updateSumission = action.payload
+            const updateSumissions = action.payload
 
-            const updateSumissions = state.submission.map((submissions) => {
-                if (submissions.id === updateSumission.id) {
-                    return updateSumission
+            const updateSumission = state.submission.map(submissions => {
+                if (submissions.id === updateSumissions.id) {
+                    return updateSumissions
                 }
                 return submissions;
             })
             return {
-                submission: updateSumissions
+                ...state,
+                submission: updateSumission
             }
         default:
             return state

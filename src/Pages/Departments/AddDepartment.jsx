@@ -8,21 +8,20 @@ import {
     Button,
 } from 'reactstrap';
 import './AddDepartment.scss';
-import { GlobalContext } from '../../Context/GlobalState';
-import { v4 as uuid } from 'uuid'
+import axios from 'axios';
 
 function AddDepartment() {
-    const [name, setName] = useState('');
-    const { addDepartment } = useContext(GlobalContext);
+    const [departmentName, setDepartmentName] = useState('');
+
     const navigate = useNavigate();
+
 
     const onSubmit = () => {
 
-        const newDepartment = {
-            id: uuid(),
-            name: name,
-        };
-        addDepartment(newDepartment);
+        axios.post('https://unibackend.azurewebsites.net/api/department', {
+            departmentName
+        })
+        // addSubmission(newSubmission);
         navigate("/department");
     };
     return (
@@ -32,7 +31,7 @@ function AddDepartment() {
                     <Label>name department</Label>
                     <Input type='text' placeholder='Enter Name Department'
                         size="50"
-                        maxLength="50" value={name} onChange={(e) => setName(e.target.value)}></Input>
+                        maxLength="50" value={departmentName} onChange={(e) => setDepartmentName(e.target.value)}></Input>
                 </div>
             </FormGroup>
             <div className='btn'>

@@ -1,8 +1,11 @@
 import React, { createContext, useEffect, useReducer, useState } from "react";
 import AppReducer from './AppReducer'
+import axios from "axios";
 const initialState = {
-
-
+    submission: [axios.get('https://unibackend.azurewebsites.net/api/topic')],
+    user: [axios.get('https://unibackend.azurewebsites.net/api/user')],
+    department: [axios.get('https://unibackend.azurewebsites.net/api/department')],
+    role: [axios.get('https://unibackend.azurewebsites.net/api/role')]
 };
 
 export const GlobalContext = createContext(initialState);
@@ -10,72 +13,24 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(AppReducer, initialState);
+    const [data, setData] = useState([])
+    const getData = () => {
+        axios.get('https://unibackend.azurewebsites.net/api/topic')
+            .then((getData) => {
+                setData(getData.data)
+            })
+    }
+    useEffect(() => {
 
-    const removeSubmission = (id) => {
-        dispatch({
-            type: 'REMOVE_SUBMISSION',
-            payload: id
-        })
-    }
-    const removeRole = (id) => {
-        dispatch({
-            type: 'REMOVE_ROLE',
-            payload: id
-        })
-    }
-    const removeDepartment = (id) => {
-        dispatch({
-            type: 'REMOVE_DEPARTMENT',
-            payload: id
-        })
-    }
-    const removeCategory = (id) => {
-        dispatch({
-            type: 'REMOVE_CATEGORY',
-            payload: id
-        })
-    }
-    const removeUser = (id) => {
-        dispatch({
-            type: 'REMOVE_USER',
-            payload: id
-        })
-    }
-    const addSubmission = (submissions) => {
-        dispatch({
-            type: 'ADD_SUBMISSION',
-            payload: submissions
-        })
-    }
-    const addRole = (roles) => {
-        dispatch({
-            type: 'ADD_ROLE',
-            payload: roles
-        })
-    }
-    const addDepartment = (departments) => {
-        dispatch({
-            type: 'ADD_DEPARTMENT',
-            payload: departments
-        })
-    }
-    const addCategory = (categories) => {
-        dispatch({
-            type: 'ADD_CATEGORY',
-            payload: categories
-        })
-    }
-    const addUser = (users) => {
-        dispatch({
-            type: 'ADD_USER',
-            payload: users
-        })
-    }
-    const editSubmission = (submissions) => {
-        dispatch({
-            type: 'EDIT_SUBMISSION',
-            payload: submissions
-        })
+    })
+    // const setId = (id) => {
+    //     console.log(id)
+    // }
+    const deleteItem = (id) => {
+        axios.delete(`https://unibackend.azurewebsites.net/api/topic/${id}`)
+            .then(() => {
+                getData();
+            })
     }
 
     return (
@@ -85,17 +40,7 @@ export const GlobalProvider = ({ children }) => {
             department: state.department,
             category: state.category,
             user: state.user,
-            removeSubmission,
-            removeRole,
-            removeDepartment,
-            removeCategory,
-            removeUser,
-            addSubmission,
-            addRole,
-            addDepartment,
-            addCategory,
-            addUser,
-            editSubmission,
+
 
         }}>
             {children}
