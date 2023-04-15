@@ -8,10 +8,21 @@ import {
 import './Department.css'
 import { NavLink } from 'react-router-dom';
 import { Button, } from 'reactstrap';
-
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 function Department() {
-    const { department, removeDepartment } = useContext(GlobalContext);
-    console.log(department)
+    const [name, setName] = useState([])
+    useEffect(() => {
+        axios.get('https://unibackend.azurewebsites.net/api/department')
+            .then((getData) => {
+                setName(getData.data)
+            })
+    })
+    // const setId = (id) => {
+    //     console.log(id)
+    // }
+    const { submission } = useContext(GlobalContext);
+    console.log(submission)
     return (
 
         <div className=''>
@@ -27,13 +38,13 @@ function Department() {
                         </NavLink>
                     </Button>
                 </div>
-                {department && department.length ? '' : 'No Item...'}
-                {department.map((department) => (
+                {name && name.length ? '' : 'No Item...'}
+                {name.map((department) => (
                     <div className='icons' >
-                        <strong key={department.id}>{department.name}</strong>
+                        <strong key={department.id}>{department.departmentName}</strong>
                         <div className='icon-cate'>
-                            <NavLink to={`/editDepartment/${department.id}`}><span title="edit"><FaEdit /></span></NavLink>
-                            <span title="delete" onClick={() => removeDepartment(department.id)}><FaTrash /></span>
+                            <NavLink to={`/editDepartment/${department.id}`}><span title="edit"><Button><FaEdit /></Button></span></NavLink>
+                            <Button><span title="delete" onClick={() => setName(department.id)}><FaTrash /></span></Button>
                         </div>
                     </div>
                 ))}

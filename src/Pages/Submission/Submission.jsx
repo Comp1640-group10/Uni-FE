@@ -1,22 +1,49 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../Context/GlobalState';
-
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './Submission'
 import {
     FaTrash,
     FaEdit,
 } from 'react-icons/fa'
-import './Submission.css'
-import { NavLink } from 'react-router-dom';
+import './Addsubmission.scss'
+import { GlobalContext } from '../../Context/GlobalState';
 import { Button, } from 'reactstrap';
-
+import axios from 'axios';
 function Submission() {
-    const { submission, removeSubmission } = useContext(GlobalContext);
+    const [data, setData] = useState([])
+    const getData = () => {
+        axios.get('https://unibackend.azurewebsites.net/api/topic')
+            .then((res) => {
+                setData(res.data)
+            })
+    }
+    // const { submission } = useContext(GlobalContext);
+    // console.log(submission)
+    const setDatatoItem = (id, topicName, closureDate, finalClosureDate) => {
+        console.log(id)
+        localStorage.setItem('id', id)
+        localStorage.setItem('topicName', topicName)
+        localStorage.setItem('closureDate', closureDate)
+        localStorage.setItem('finalClosureDate', finalClosureDate)
+
+    }
+    useEffect(() => {
+
+        getData();
+    })
+    const deleteItem = (id) => {
+        axios.delete(`https://unibackend.azurewebsites.net/api/topic/${id}`)
+            .then(() => {
+                getData();
+            })
+    }
+    const { submission } = useContext(GlobalContext);
     console.log(submission)
     return (
 
         <div className=''>
 
-            <h1>Submission page</h1>
+            <h1>Staff Submission page</h1>
 
             <div className='Submission'>
 
@@ -27,15 +54,16 @@ function Submission() {
                         </NavLink>
                     </Button>
                 </div>
-                {submission && submission.length ? '' : 'No Item...'}
-                {submission.map((submission) => (
+                {data && data.length ? '' : 'No Item...'}
+                {data.map((data) => (
                     <div className='icons' >
-                        <strong key={submission.id}>{submission.name}</strong>
-                        <div className='deadline_1'>{submission.deadline_1}</div>
-                        <div className='deadline_2'>{submission.deadline_2}</div>
+                        <strong key={data.id}>{data.topicName}</strong>
+                        <div className='deadline_1'>{data.closureDate}</div>
+                        <div className='deadline_2'>{data.finalClosureDate}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/editSubmission/${submission.id}`}><span title="edit"><FaEdit /></span></NavLink>
-                            <span title="delete" onClick={() => removeSubmission(submission.id)}><FaTrash /></span>
+                            <Link to={`/editSubmission/${data.id}`} onChange={() => setDatatoItem(data.id, data.topicName, data.closureDate, data.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <span title="delete" ><Button onClick={() => deleteItem(data.id)}><FaTrash /></Button></span>
+
                         </div>
                     </div>
                 ))}

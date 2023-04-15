@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
 import '../Submission/Submission'
 import {
     FaFileExcel,
@@ -8,8 +7,18 @@ import {
 } from 'react-icons/fa'
 import './StaffSubmission.css'
 import { GlobalContext } from '../../Context/GlobalState';
-import { Button, } from 'reactstrap';
-function StaffSubmission(props) {
+import axios from 'axios';
+function StaffSubmission() {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get('https://unibackend.azurewebsites.net/api/topic')
+            .then((getData) => {
+                setData(getData.data)
+            })
+    })
+    // const setId = (id) => {
+    //     console.log(id)
+    // }
     const { submission } = useContext(GlobalContext);
     console.log(submission)
     return (
@@ -20,24 +29,16 @@ function StaffSubmission(props) {
 
             <div className='Submission'>
 
-                <div className='btn'>
-                    <Button>
-                        <NavLink to='/addSubmission'>
-                            new add
-                        </NavLink>
-                    </Button>
-                </div>
-                {submission && submission.length ? '' : 'No Item...'}
-                {submission.map((submission) => (
+                {data && data.length ? '' : 'No Item...'}
+                {data.map((data) => (
                     <div className='icons' >
-                        <strong key={submission.id}>{submission.name}</strong>
-                        <div className='deadline_1'>{submission.deadline_1}</div>
-                        <div className='deadline_2'>{submission.deadline_2}</div>
+                        <strong key={data.id}>{data.topicName}</strong>
+                        <div className='deadline_1'>{data.closureDate}</div>
+                        <div className='deadline_2'>{data.finalClosureDate}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/listOfIdeas/${submission.id}`}><span title="detail"><FaInfoCircle /></span></NavLink>
-                            <span title="excel" ><FaFileExcel /></span>
+                            <span title="detail" ><FaInfoCircle /></span>
                             <span title="folder" ><FaFolder /></span>
-
+                            <span title="excel" ><FaFileExcel /></span>
                         </div>
                     </div>
                 ))}

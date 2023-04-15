@@ -10,20 +10,22 @@ import {
 import './AddRole.scss';
 import { GlobalContext } from '../../Context/GlobalState';
 import { v4 as uuid } from 'uuid'
-
+import axios from 'axios';
 function AddSubmission() {
-    const [name, setName] = useState('');
+
+
     const [id, setId] = useState('');
-    const { addRole } = useContext(GlobalContext);
+    const [roleName, setRoleName] = useState('');
+
     const navigate = useNavigate();
 
     const onSubmit = () => {
 
-        const newRole = {
-            id: id,
-            name: name,
-        };
-        addRole(newRole);
+        axios.post('https://unibackend.azurewebsites.net/api/role', {
+            roleName,
+            id,
+        })
+        // addSubmission(newSubmission);
         navigate("/role");
     };
     return (
@@ -39,7 +41,7 @@ function AddSubmission() {
                     <Label>name</Label>
                     <Input type='text' placeholder='Enter Name Role'
                         size="50"
-                        maxLength="50" value={name} onChange={(e) => setName(e.target.value)}></Input>
+                        maxLength="50" value={roleName} onChange={(e) => setRoleName(e.target.value)}></Input>
                 </div>
             </FormGroup>
             <div className='btn'>
