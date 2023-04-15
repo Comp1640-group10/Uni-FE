@@ -21,7 +21,7 @@ function User() {
     }
     useEffect(() => {
         getData();
-    })
+    }, [])
     const deleteItem = (id) => {
         axios.delete(`https://unibackend.azurewebsites.net/api/user/${id}`)
             .then(() => {
