@@ -15,7 +15,7 @@ function StaffSubmission() {
             .then((getData) => {
                 setData(getData.data)
             })
-    })
+    }, [])
     // const setId = (id) => {
     //     console.log(id)
     // }

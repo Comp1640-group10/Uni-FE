@@ -56,7 +56,7 @@ function Sidebar({ children }) {
   ];
   return (
     <div style={{ height: "1080px" }}>
-      <div style={{ width: isOpen ? "300px" : "50px", height:'100%' }} className="sidebar">
+      <div style={{ width: isOpen ? "300px" : "50px", height: '100%' }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             Logo{" "}
@@ -70,7 +70,7 @@ function Sidebar({ children }) {
             to={item.path}
             key={index}
             className="link"
-            activeclassName="active"
+            activeClassName="active"
           >
             <div className="icon">{item.icon}</div>
             <div

@@ -7,6 +7,7 @@ function ViewUser() {
         axios.get('https://unibackend.azurewebsites.net/api/user')
             .then((getData) => {
                 setData(getData.data)
+                console.log(getData)
             })
 
     }

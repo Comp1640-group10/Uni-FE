@@ -19,7 +19,7 @@ function Role() {
     }
     useEffect(() => {
         getData();
-    })
+    }, [])
     // const setId = (id) => {
     //     console.log(id)
     // }

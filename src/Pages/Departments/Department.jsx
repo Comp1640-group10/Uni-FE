@@ -17,7 +17,7 @@ function Department() {
             .then((getData) => {
                 setName(getData.data)
             })
-    })
+    }, [])
     // const setId = (id) => {
     //     console.log(id)
     // }

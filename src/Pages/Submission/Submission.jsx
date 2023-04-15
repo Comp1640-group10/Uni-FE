@@ -30,7 +30,7 @@ function Submission() {
     useEffect(() => {
 
         getData();
-    })
+    }, [])
     const deleteItem = (id) => {
         axios.delete(`https://unibackend.azurewebsites.net/api/topic/${id}`)
             .then(() => {
@@ -55,14 +55,14 @@ function Submission() {
                     </Button>
                 </div>
                 {data && data.length ? '' : 'No Item...'}
-                {data.map((data) => (
+                {data.map((datas) => (
                     <div className='icons' >
-                        <strong key={data.id}>{data.topicName}</strong>
-                        <div className='deadline_1'>{data.closureDate}</div>
-                        <div className='deadline_2'>{data.finalClosureDate}</div>
+                        <strong key={datas.id}>{datas.topicName}</strong>
+                        <div className='deadline_1'>{datas.closureDate}</div>
+                        <div className='deadline_2'>{datas.finalClosureDate}</div>
                         <div className='icon-cate'>
-                            <Link to={`/editSubmission/${data.id}`} onChange={() => setDatatoItem(data.id, data.topicName, data.closureDate, data.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
-                            <span title="delete" ><Button onClick={() => deleteItem(data.id)}><FaTrash /></Button></span>
+                            <Link to={`/editSubmission/${datas.id}`} onChange={() => setDatatoItem(datas.id, datas.topicName, datas.closureDate, datas.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
 
                         </div>
                     </div>
