@@ -1,37 +1,14 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useEffect, useReducer, useState } from "react";
 import AppReducer from './AppReducer'
-
 const initialState = {
-    submission: [
-        { id: 1, name: 'staff 1', deadline_1: "04/04/2023", deadline_2: '04/05/2023' },
-        { id: 2, name: 'staff 2', deadline_1: "04/04/2023", deadline_2: '04/05/2023' },
-        { id: 3, name: 'staff 3', deadline_1: "04/04/2023", deadline_2: '04/05/2023' }
-    ],
-    role: [
-        { id: 1, name: 'staff 1' },
-        { id: 2, name: 'staff 2' },
-        { id: 3, name: 'staff 3' }
-    ],
-    department: [
-        { id: 1, name: 'staff 1' },
-        { id: 2, name: 'staff 2' },
-        { id: 3, name: 'staff 3' }
-    ],
-    category: [
-        { id: 1, name: 'staff 1' },
-        { id: 2, name: 'staff 2' },
-        { id: 3, name: 'staff 3' }
-    ],
-    user: [
-        { id: 1, name: 'staff 1', password: "123456789", email: 'staff1@test.com' },
-        { id: 2, name: 'staff 2', password: "123456789", email: 'staff2@test.com' },
-        { id: 3, name: 'staff 3', password: "123456789", email: 'staff3@test.com' }
-    ]
+
+
 };
 
 export const GlobalContext = createContext(initialState);
 
 export const GlobalProvider = ({ children }) => {
+
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     const removeSubmission = (id) => {
@@ -118,7 +95,8 @@ export const GlobalProvider = ({ children }) => {
             addDepartment,
             addCategory,
             addUser,
-            editSubmission
+            editSubmission,
+
         }}>
             {children}
         </GlobalContext.Provider>
