@@ -4,9 +4,9 @@
   align-items: center;
 }
 
-.sidebar-container {
+.container {
+  width: var(--default-layout-width, 1150px);
   display: flex;
-  overflow: hidden;
 }
 
 .content {
