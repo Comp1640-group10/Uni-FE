@@ -1,7 +1,7 @@
 //Layouts
 
 //Pages
-import Home from "../Pages/Home/Home";
+import Home from "../Pages/Home/User";
 import Login from "../Pages/Login/Login";
 import Category from "../Pages/Categories/Category";
 import Department from "../Pages/Departments/Department";
@@ -54,7 +54,10 @@ const publicRoutes = [
   { path: "/emailstaff", component: EmailStaff },
   { path: "/personaldatastaff", component: PersonalDataStaff },
   { path: "/profilestaff", component: ProfileStaff },
-  { path: "/twofactorauthenticationstaff", component: TwoFactorAuthenticationStaff },
+  {
+    path: "/twofactorauthenticationstaff",
+    component: TwoFactorAuthenticationStaff,
+  },
   // Staff Page 2
   { path: "/homepagestaff", component: HomePageStaff },
   { path: "/profile", component: Profile },
@@ -64,7 +67,10 @@ const publicRoutes = [
   { path: "/personaldata", component: PersonalData },
   { path: "/staffsubmissionpage1", component: StaffSubmissionPage },
   { path: "/liststaffsubmissionpage", component: ListStaffSubmissionPage },
-  { path: "/detailsstaffsubmissionpage", component: DetailsStaffSubmissionPage },
+  {
+    path: "/detailsstaffsubmissionpage",
+    component: DetailsStaffSubmissionPage,
+  },
 ];
 
-export { publicRoutes }
+export { publicRoutes };
