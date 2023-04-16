@@ -14,12 +14,11 @@ import { v4 as uuid } from 'uuid'
 import axios from 'axios';
 import '../Departments/Department'
 function AddUser() {
-    const [post, setPost] = useState({
-        name: '',
-        password: ''
-    });
+    const [post, setPost] = useState('');
     const [password, setPassword] = useState('');
-    const [departmentName, setDepartmentName] = useState([]);
+    const [departmentName, setDepartmentName] = useState('');
+    const [departmentId, setDepartmentId] = useState('');
+
     const navigate = useNavigate();
     useEffect(() => {
         axios.get('https://unibackend.azurewebsites.net/api/department')

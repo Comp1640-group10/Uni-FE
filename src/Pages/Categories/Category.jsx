@@ -10,7 +10,7 @@ import { GlobalContext } from '../../Context/GlobalState';
 import { Button } from 'reactstrap';
 import axios from 'axios';
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
-function Submission() {
+function Category() {
 
     const [data, setData] = useState([])
     // let date = data.toString()
@@ -74,4 +74,4 @@ function Submission() {
     );
 }
 
-export default Submission;
+export default Category;
