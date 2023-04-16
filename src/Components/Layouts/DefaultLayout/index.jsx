@@ -1,11 +1,13 @@
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from './Sidebar/Sidebar'
 import "./DefaultLayout.scss";
 
 function DefaultLayout({ children }) {
   return (
-    <div className="sidebar-container">
-      <Sidebar style={{height:'100%'}}/>
-      <div className="content">{children}</div>
+    <div className="wrapper">
+      <div className="container">
+        <Sidebar />
+        <div className="content">{children}</div>
+      </div>
     </div>
   );
 }

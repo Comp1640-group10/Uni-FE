@@ -61,7 +61,7 @@ function Sidebar({ children }) {
     },
   ];
   return (
-    <div style={{ height: "1080px" }}>
+<div style={{ height: "1080px" }}>
       <div
         style={{ width: isOpen ? "300px" : "50px", height: "100%" }}
         className="sidebar"
