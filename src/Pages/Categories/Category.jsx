@@ -1,22 +1,53 @@
-import React, { useContext } from 'react';
-import { GlobalContext } from '../../Context/GlobalState';
-
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import './Category'
 import {
     FaTrash,
     FaEdit,
 } from 'react-icons/fa'
 import './Category.css'
-import { NavLink } from 'react-router-dom';
-import { Button, } from 'reactstrap';
+import { GlobalContext } from '../../Context/GlobalState';
+import { Button } from 'reactstrap';
+import axios from 'axios';
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
+function Submission() {
 
-function Category() {
-    const { category, removeCategory } = useContext(GlobalContext);
-    console.log(category)
+    const [data, setData] = useState([])
+    // let date = data.toString()
+
+    const getData = () => {
+        axios.get('https://unibackend.azurewebsites.net/api/category')
+            .then((res) => {
+
+                console.log("after convert:", res.data)
+                setData(res.data)
+            })
+    }
+    // const { submission } = useContext(GlobalContext);
+    // console.log(submission)
+    // const setToLocalStorage = (id, topicName, closureDate, finalClosureDate) => {
+    //     localStorage.setItem('id', id)
+    //     localStorage.setItem('topicName', topicName)
+    //     localStorage.setItem('closureDate', closureDate.toDateString())
+    //     localStorage.setItem('finalClosureDate', finalClosureDate)
+
+    // }
+    useEffect(() => {
+
+        getData();
+    }, [])
+    const deleteItem = (id) => {
+        axios.delete(`https://unibackend.azurewebsites.net/api/category/${id}`)
+            .then(() => {
+                getData();
+            })
+    }
+
     return (
 
         <div className=''>
 
-            <h1>Category page</h1>
+            <h1>Categories page</h1>
 
             <div className='category'>
 
@@ -27,13 +58,14 @@ function Category() {
                         </NavLink>
                     </Button>
                 </div>
-                {category && category.length ? '' : 'No Item...'}
-                {category.map((category) => (
-                    <div className='icons' >
-                        <strong key={category.id}>{category.name}</strong>
+
+                {data && data.length ? '' : 'No Item...'}
+                {data.map((datas) => (
+                    <div className='icons' key={datas.id}>
+                        <div>{datas.name}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/editCategory/${category.id}`}><span title="edit"><FaEdit /></span></NavLink>
-                            <span title="delete" onClick={() => removeCategory(category.id)}><FaTrash /></span>
+                            <Link to={`/editSubmission/${datas.id}`} > <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
                         </div>
                     </div>
                 ))}
@@ -42,4 +74,4 @@ function Category() {
     );
 }
 
-export default Category;
+export default Submission;
