@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from "react";
+import axios from "axios";
 
 import "./Login.scss";
 
@@ -8,18 +9,24 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await fetch(
-      "https://unibackend.azurewebsites.net/api/user/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    try {
+      const response = await axios.post(
+        "https://unibackend.azurewebsites.net/api/user/login",
+        {
+          email: email,
+          password: password,
         },
-        body: JSON.stringify({ email, password }),
-      }
-    );
-    const data = await response.json();
-    console.log(data);
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = response.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <Fragment>
