@@ -6,7 +6,7 @@ import Login from "../Pages/Login/Login";
 import Category from "../Pages/Categories/Category";
 import Department from "../Pages/Departments/Department";
 import Role from "../Pages/Role/Role";
-import StaffSubmission from "../Pages/StaffSubmission/StaffSubmission";
+import StaffSubmission from "../Pages/StaffSubmission2/StaffSubmission";
 import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
 import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
 import Statistics from "../Pages/Statistics/Statistics";
