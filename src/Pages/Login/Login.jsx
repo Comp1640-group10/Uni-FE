@@ -4,8 +4,10 @@ import axios from "axios";
 import "./Login.scss";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  //const [token, setToken] = useState(""); 
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -13,7 +15,7 @@ const Login = () => {
       const response = await axios.post(
         "https://unibackend.azurewebsites.net/api/user/login",
         {
-          email: email,
+          fullname: username,
           password: password,
         },
         {
@@ -24,6 +26,7 @@ const Login = () => {
       );
       const data = response.data;
       console.log(data);
+      localStorage.setItem('token', data.data);
     } catch (error) {
       console.error(error);
     }
@@ -37,11 +40,11 @@ const Login = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label for="username">Username</label>
-                <input type="text" className="form-control" id="username" />
+                <input type="text" onChange={(e) => setUserName(e.target.value)} className="form-control" id="username" />
               </div>
               <div className="form-group">
                 <label for="password">Password</label>
-                <input type="password" className="form-control" id="password" />
+                <input type="password" onChange={(e) => setPassword(e.target.value)} className="form-control" id="password" />
               </div>
               <button type="submit" className="submit-btn btn btn-primary">
                 Login
