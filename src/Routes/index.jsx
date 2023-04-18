@@ -9,7 +9,11 @@ import Role from "../Pages/Role/Role";
 import StaffSubmission from "../Pages/StaffSubmission2/StaffSubmission";
 import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
 import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
+
+import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
+=======
 import Statistics from "../Pages/Statistics/Statistics";
+
 import Submission from "../Pages/Submission/Submission";
 // Staff Page 1
 import HomePageStaff1 from "../StaffPages1/Home/HomePageStaff1";
@@ -42,7 +46,11 @@ const publicRoutes = [
   { path: "/staffsubmission", component: StaffSubmission },
   { path: "/liststaffsubmission", component: ListStaffSubmission },
   { path: "/detailsstaffsubmission", component: DetailsStaffSubmission },
+
+  { path: "/listOfIdeas/:id", component: ListofIdeas },
+=======
   { path: "/statistics", component: Statistics },
+
   { path: "/submission", component: Submission },
   // Staff Page 1
   { path: "/homepagestaff1", component: HomePageStaff1 },

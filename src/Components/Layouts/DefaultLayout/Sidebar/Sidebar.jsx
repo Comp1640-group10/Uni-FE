@@ -45,11 +45,6 @@ function Sidebar({ children }) {
       icon: <FaClipboardList />,
     },
     {
-      path: "/Statistics",
-      name: "Statistics",
-      icon: <FaChartLine />,
-    },
-    {
       path: "/submission",
       name: "Submission",
       icon: <FaVoteYea />,

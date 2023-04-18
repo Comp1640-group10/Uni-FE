@@ -21,7 +21,6 @@ function AddSubmission(props) {
     const navigate = useNavigate();
 
     const onSubmit = () => {
-
         axois.post('https://unibackend.azurewebsites.net/api/topic', {
             topicName,
             closureDate,
