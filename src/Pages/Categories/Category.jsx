@@ -1,3 +1,4 @@
+
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './Category'
@@ -57,13 +58,31 @@ function Category() {
 
             <div className='category'>
 
-                <div className='btn'>
+<div className='btn'>
                     <Button>
-                        <NavLink to='/addCategory'>
+                        <NavLink to='/addUser'>
                             new add
                         </NavLink>
                     </Button>
                 </div>
+
+                <div className="input-page">
+                    <div className="input">
+                        <h3>name category</h3>
+                        <input
+                            type="text"
+                            placeholder="add new category"
+                            size="50"
+                            maxLength="50"
+                            value={newAdd}
+                            onChange={(e) => setNewAdd(e.target.value)}
+                        />
+                    </div>
+                    <div className="btn">
+                        <button onClick={handleSubmit}>add new</button>
+                    </div>
+                </div>
+
 
                 {data && data.length ? '' : 'No Item...'}
                 {data.map((datas) => (
@@ -73,11 +92,12 @@ function Category() {
                             <Link to={`/editSubmission/${datas.id}`} onClick={() => setToLocalStorage(datas.id, datas.categoryName)} > <span title="edit" ><Button><FaEdit /></Button></span></Link>
                             <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
                         </div>
+
                     </div>
-                ))}
+                </div>
             </div>
         </div>
     );
-}
+};
 
 export default Category;

@@ -1,36 +1,37 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { GlobalContext } from '../../Context/GlobalState';
+import React, { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../../Context/GlobalState";
 
-import {
-    FaTrash,
-    FaEdit,
-    FaInfoCircle
-} from 'react-icons/fa'
-import { Link, NavLink } from 'react-router-dom';
-import './User.css'
-import { Button } from 'reactstrap';
-import axios from 'axios';
+import { FaTrash, FaEdit, FaInfoCircle } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
+import "./User.css";
+import { Button } from "reactstrap";
+import axios from "axios";
 function User() {
-    const [data, setData] = useState([])
-    const getData = () => {
-        axios.get('https://unibackend.azurewebsites.net/api/user')
-            .then((getData) => {
-                setData(getData.data)
-            })
+  const [data, setData] = useState([]);
+  const getData = () => {
+    axios
+      .get("https://unibackend.azurewebsites.net/api/user")
+      .then((getData) => {
+        setData(getData.data);
+      });
+  };
+  useEffect(() => {
+    getData();
+  });
 
-    }
-    useEffect(() => {
+         const deleteItem = (id) => {
+    axios
+      .delete(`https://unibackend.azurewebsites.net/api/user/${id}`)
+      .then(() => {
         getData();
-    }, [])
-    const deleteItem = (id) => {
-        axios.delete(`https://unibackend.azurewebsites.net/api/user/${id}`)
-            .then(() => {
-                getData();
-            })
-    }
-    const { submission } = useContext(GlobalContext);
-    console.log(submission)
-    return (
+      });
+  };
+  const { submission } = useContext(GlobalContext);
+  console.log(submission);
+  return (
+    <div className="">
+      <h1>User page</h1>
+
 
         <div className=''>
 
@@ -56,9 +57,13 @@ function User() {
 
                     </div>
                 ))}
+
             </div>
-        </div>
-    );
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default User;

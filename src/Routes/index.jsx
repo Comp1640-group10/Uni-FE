@@ -1,27 +1,20 @@
 //Layouts
 
 //Pages
-import User from "../Pages/Home/User";
-import AddUser from "../Pages/Home/AddUser";
-import EditUser from "../Pages/Home/EditUser";
-import ViewUser from "../Pages/Home/ViewUser";
+import Home from "../Pages/Home/User";
 import Login from "../Pages/Login/Login";
 import Category from "../Pages/Categories/Category";
-import AddCategory from "../Pages/Categories/AddCategory";
-import EditCategory from "../Pages/Categories/EditCategory";
 import Department from "../Pages/Departments/Department";
-import AddDepartment from "../Pages/Departments/AddDepartment";
-import EditDepartment from "../Pages/Departments/EditDepartment";
 import Role from "../Pages/Role/Role";
-import AddRole from "../Pages/Role/AddRole";
-import EditRole from "../Pages/Role/EditRole";
 import StaffSubmission from "../Pages/StaffSubmission2/StaffSubmission";
 import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
 import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
+
 import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
+=======
+import Statistics from "../Pages/Statistics/Statistics";
+
 import Submission from "../Pages/Submission/Submission";
-import AddSubmission from "../Pages/Submission/AddSubmission";
-import EditSubmission from "../Pages/Submission/EditSubmission";
 // Staff Page 1
 import HomePageStaff1 from "../StaffPages1/Home/HomePageStaff1";
 import AccountStaff1 from "../StaffPages1/AccountStaff1/AccountStaff1";
@@ -44,32 +37,21 @@ import StaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/StaffSubmis
 import ListStaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/ListStaffSubmissionPage";
 import DetailsStaffSubmissionPage from "../StaffPages1/StaffSubmissionPage1/DetailsStaffSubmission1";
 
-
-
-
 const publicRoutes = [
-
-  { path: "/", component: User },
-  { path: "/addUser", component: AddUser },
-  { path: "/editUser/:id", component: EditUser },
-  { path: "/viewUser/:id", component: ViewUser },
+  { path: "/", component: Home },
   { path: "/category", component: Category },
-  { path: "/addCategory", component: AddCategory },
-  { path: "/editCategory/:id", component: EditCategory },
   { path: "/login", component: Login },
   { path: "/department", component: Department },
-  { path: "/addDepartment", component: AddDepartment },
-  { path: "/editDepartment/:id", component: EditDepartment },
   { path: "/role", component: Role },
-  { path: "/addRole", component: AddRole },
-  { path: "/editRole/:id", component: EditRole },
-  { path: "/staffSubmission", component: StaffSubmission },
+  { path: "/staffsubmission", component: StaffSubmission },
   { path: "/liststaffsubmission", component: ListStaffSubmission },
   { path: "/detailsstaffsubmission", component: DetailsStaffSubmission },
+
   { path: "/listOfIdeas/:id", component: ListofIdeas },
+=======
+  { path: "/statistics", component: Statistics },
+
   { path: "/submission", component: Submission },
-  { path: "/addSubmission", component: AddSubmission },
-  { path: "/editSubmission/:id", component: EditSubmission },
   // Staff Page 1
   { path: "/homepagestaff1", component: HomePageStaff1 },
   { path: "/staffsubmission1", component: StaffSubmission1 },
@@ -80,7 +62,10 @@ const publicRoutes = [
   { path: "/emailstaff", component: EmailStaff },
   { path: "/personaldatastaff", component: PersonalDataStaff },
   { path: "/profilestaff", component: ProfileStaff },
-  { path: "/twofactorauthenticationstaff", component: TwoFactorAuthenticationStaff },
+  {
+    path: "/twofactorauthenticationstaff",
+    component: TwoFactorAuthenticationStaff,
+  },
   // Staff Page 2
   { path: "/homepagestaff", component: HomePageStaff },
   { path: "/profile", component: Profile },
@@ -90,8 +75,10 @@ const publicRoutes = [
   { path: "/personaldata", component: PersonalData },
   { path: "/staffsubmissionpage1", component: StaffSubmissionPage },
   { path: "/liststaffsubmissionpage", component: ListStaffSubmissionPage },
-  { path: "/detailsstaffsubmissionpage", component: DetailsStaffSubmissionPage },
-
+  {
+    path: "/detailsstaffsubmissionpage",
+    component: DetailsStaffSubmissionPage,
+  },
 ];
 
-export { publicRoutes }
+export { publicRoutes };

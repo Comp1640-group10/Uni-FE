@@ -8,6 +8,7 @@ import {
   FaChartLine,
   FaClipboardList,
   FaThList,
+  FaPowerOff,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -24,18 +25,18 @@ function Sidebar({ children }) {
     },
     {
       path: "/category",
-      name: "category",
+      name: "Category",
       icon: <FaThList />,
     },
     {
       path: "/Department",
-      name: "department",
+      name: "Department",
       icon: <FaSitemap />,
     },
 
     {
       path: "/Role",
-      name: "role",
+      name: "Role",
       icon: <FaUserCog />,
     },
     {
@@ -45,13 +46,21 @@ function Sidebar({ children }) {
     },
     {
       path: "/submission",
-      name: "submission",
+      name: "Submission",
       icon: <FaVoteYea />,
+    },
+    {
+      path: "/login",
+      name: "Logout",
+      icon: <FaPowerOff />,
     },
   ];
   return (
     <div style={{ height: "1080px" }}>
-      <div style={{ width: isOpen ? "300px" : "50px", height: '100%' }} className="sidebar">
+      <div
+        style={{ width: isOpen ? "300px" : "50px", height: "100%" }}
+        className="sidebar"
+      >
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="logo">
             Logo{" "}
