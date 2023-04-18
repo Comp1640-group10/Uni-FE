@@ -17,9 +17,8 @@ function User() {
   };
   useEffect(() => {
     getData();
-  });
-
-         const deleteItem = (id) => {
+  }, []);
+  const deleteItem = (id) => {
     axios
       .delete(`https://unibackend.azurewebsites.net/api/user/${id}`)
       .then(() => {
@@ -31,33 +30,36 @@ function User() {
   return (
     <div className="">
       <h1>User page</h1>
-
-
-        <div className=''>
-
-            <h1>User page</h1>
-
-            <div className='user'>
-                <div className='btn'>
-                    <Button>
-                        <NavLink to='/addUser'>
-                            new add
-                        </NavLink>
-                    </Button>
-                </div>
-                {data && data.length ? '' : 'No Item...'}
-                {data.map((data) => (
-                    <div className='icons' >
-                        <strong key={data.id}>{data.fullName}</strong>
-                        <div className='icon-cate'>
-                            <Link to={`/viewUser/${data.id}`}><span title="view" ><Button><FaInfoCircle /></Button></span></Link>
-                            <Link ><span title="edit" ><Button><FaEdit /></Button></span></Link>
-                            <span title="delete" ><Button onClick={() => deleteItem(data.id)}><FaTrash /></Button></span>
-                        </div>
-
-                    </div>
-                ))}
-
+      <div className="user">
+        <div className="btn">
+          <Button>
+            <NavLink to="/addUser">new add</NavLink>
+          </Button>
+        </div>
+        {data && data.length ? "" : "No Item..."}
+        {data.map((data) => (
+          <div className="icons">
+            <strong key={data.id}>{data.fullName}</strong>
+            <div className="icon-cate">
+              <Link to={`/viewUser/${data.id}`}>
+                <span title="view">
+                  <Button>
+                    <FaInfoCircle />
+                  </Button>
+                </span>
+              </Link>
+              <Link>
+                <span title="edit">
+                  <Button>
+                    <FaEdit />
+                  </Button>
+                </span>
+              </Link>
+              <span title="delete">
+                <Button onClick={() => deleteItem(data.id)}>
+                  <FaTrash />
+                </Button>
+              </span>
             </div>
           </div>
         ))}
