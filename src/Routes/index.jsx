@@ -19,7 +19,6 @@ import StaffSubmission from "../Pages/StaffSubmission2/StaffSubmission";
 import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
 import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
 import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
-import Statistics from "../Pages/Statistics/Statistics";
 import Submission from "../Pages/Submission/Submission";
 import AddSubmission from "../Pages/Submission/AddSubmission";
 import EditSubmission from "../Pages/Submission/EditSubmission";
@@ -68,7 +67,6 @@ const publicRoutes = [
   { path: "/liststaffsubmission", component: ListStaffSubmission },
   { path: "/detailsstaffsubmission", component: DetailsStaffSubmission },
   { path: "/listOfIdeas/:id", component: ListofIdeas },
-  { path: "/statistics", component: Statistics },
   { path: "/submission", component: Submission },
   { path: "/addSubmission", component: AddSubmission },
   { path: "/editSubmission/:id", component: EditSubmission },

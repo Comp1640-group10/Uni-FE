@@ -48,13 +48,12 @@ function User() {
                 {data.map((data) => (
                     <div className='icons' >
                         <strong key={data.id}>{data.fullName}</strong>
-
                         <div className='icon-cate'>
                             <Link to={`/viewUser/${data.id}`}><span title="view" ><Button><FaInfoCircle /></Button></span></Link>
                             <Link ><span title="edit" ><Button><FaEdit /></Button></span></Link>
                             <span title="delete" ><Button onClick={() => deleteItem(data.id)}><FaTrash /></Button></span>
-
                         </div>
+
                     </div>
                 ))}
             </div>

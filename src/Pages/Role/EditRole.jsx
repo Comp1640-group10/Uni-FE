@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
     Form,
@@ -10,49 +10,33 @@ import {
 import './AddRole.scss';
 import { GlobalContext } from '../../Context/GlobalState';
 import { v4 as uuid } from 'uuid'
-
+import axios from 'axios';
 function AddSubmission() {
-    const [name, setName] = useState({
-        id: '',
-        name: '',
-        deadline_1: '',
-        deadline_2: '',
-
-    });
-    const { addSubmission } = useContext(GlobalContext);
+    const [roleName, setRoleName] = useState('');
     const navigate = useNavigate();
+    useEffect(() => {
+        setRoleName(localStorage.getItem('roleName'))
+    }, [])
+    const sendDatatoApi = () => {
 
-    const onSubmit = () => {
-
-        const newSubmission = {
-            id: uuid(),
-            name: name.name,
-            deadline_1: name.deadline_1,
-            deadline_2: name.deadline_2,
-        };
-        addSubmission(newSubmission);
-        navigate("/submission");
+        axios.post(`https://unibackend.azurewebsites.net/api/role`, {
+            roleName
+        })
+        // addSubmission(newSubmission);
+        navigate("/role");
     };
     return (
-        <Form onSubmit={onSubmit}>
+        <Form>
             <FormGroup>
                 <div className='name'>
                     <Label>name</Label>
                     <Input type='text' placeholder='Enter Name Staff'
                         size="50"
-                        maxLength="50" value={name.name} onChange={(e) => setName(e.target.value)}></Input>
-                </div>
-                <div className='deadline_1'>
-                    <Label>deadline_1</Label>
-                    <Input type='date' placeholder='Enter Name Staff' value={name.deadline_1} onChange={(e) => setName(e.target.value)}></Input>
-                </div>
-                <div className='deadline_2'>
-                    <Label>deadline_2</Label>
-                    <Input type='date' placeholder='Enter Name Staff' value={name.deadline_2} onChange={(e) => setName(e.target.value)}></Input>
+                        maxLength="50" value={roleName} onChange={(e) => setRoleName(e.target.value)}></Input>
                 </div>
             </FormGroup>
             <div className='btn'>
-                <Button type='submit'>Submiss</Button>
+                <Button type='submit' onClick={sendDatatoApi}>Submiss</Button>
                 <Button><Link to="/submission">cancel</Link></Button>
             </div>
         </Form>

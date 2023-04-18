@@ -32,6 +32,12 @@ function Category() {
     //     localStorage.setItem('finalClosureDate', finalClosureDate)
 
     // }
+    const setToLocalStorage = (id, categoryName) => {
+        localStorage.setItem('id', id)
+        localStorage.setItem('categoryName', categoryName)
+
+
+    }
     useEffect(() => {
 
         getData();
@@ -62,9 +68,9 @@ function Category() {
                 {data && data.length ? '' : 'No Item...'}
                 {data.map((datas) => (
                     <div className='icons' key={datas.id}>
-                        <div>{datas.name}</div>
+                        <div>{datas.categoryName}</div>
                         <div className='icon-cate'>
-                            <Link to={`/editSubmission/${datas.id}`} > <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <Link to={`/editSubmission/${datas.id}`} onClick={() => setToLocalStorage(datas.id, datas.categoryName)} > <span title="edit" ><Button><FaEdit /></Button></span></Link>
                             <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
                         </div>
                     </div>
