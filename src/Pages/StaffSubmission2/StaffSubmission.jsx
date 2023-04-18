@@ -5,7 +5,17 @@ import "./StaffSubmission.css";
 import { GlobalContext } from "../../Context/GlobalState";
 import axios from "axios";
 import ExportToCsv from "../../Components/ExportFunction";
+
+axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
+  "token"
+)}`;
+
 function StaffSubmission() {
+  const handleOnClick = (e) => {
+    return (
+      <a href="https://unibackend.azurewebsites.net/api/idea/csv"></a>
+    )
+  };
   const [data, setData] = useState([]);
   useEffect(() => {
     axios
@@ -37,9 +47,11 @@ function StaffSubmission() {
               <span title="folder">
                 <FaFolder />
               </span>
-              <ExportToCsv fileName="users">
-                <FaFileExcel />
-              </ExportToCsv>
+              <button onClick={handleOnClick} className="btn btn-dark">
+                {/* <ExportToCsv fileName="users">
+                  <FaFileExcel />
+                </ExportToCsv> */}
+              </button>
             </div>
           </div>
         ))}
