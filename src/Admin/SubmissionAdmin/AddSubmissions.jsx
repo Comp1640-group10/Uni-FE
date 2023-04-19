@@ -7,13 +7,13 @@ import {
     Input,
     Button,
 } from 'reactstrap';
-import './Addsubmission.scss';
+import "./AddSubmissions.scss";
 import { GlobalContext } from '../../Context/GlobalState';
 import { v4 as uuid } from 'uuid';
 import axois from 'axios';
-import './AddSubmission';
+import './AddSubmissions';
 
-function AddSubmission(props) {
+function AddSubmissions(props) {
     const [topicName, setTopicName] = useState('');
     const [closureDate, setClosureDate] = useState('');
     const [finalClosureDate, setFinalClosureDate] = useState('');
@@ -22,13 +22,14 @@ function AddSubmission(props) {
     const navigate = useNavigate();
 
     const onSubmit = () => {
+
         axois.post('https://unibackend.azurewebsites.net/api/topic', {
             topicName,
             closureDate,
             finalClosureDate
         })
         // addSubmission(newSubmission);
-        navigate("/submission");
+        navigate("/submissions");
     };
 
     return (
@@ -51,10 +52,10 @@ function AddSubmission(props) {
             </FormGroup>
             <div className='btn'>
                 <Button type='submit'>Submiss</Button>
-                <Button><Link to="/submission">cancel</Link></Button>
+                <Button><Link to="/submissions">cancel</Link></Button>
             </div>
         </Form>
     );
 }
 
-export default AddSubmission;
+export default AddSubmissions;

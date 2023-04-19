@@ -1,40 +1,41 @@
-import React, { useContext } from "react";
-import "./StaffSubmissionPage";
-import { Link, NavLink } from "react-router-dom";
+import React, { useContext, useEffect, useState } from 'react';
 import { FaInfoCircle } from 'react-icons/fa'
+import "./StaffSubmissionPage.css";
 import { GlobalContext } from '../../Context/GlobalState';
+import axios from 'axios';
 
-function StaffSubmissionPage(props) {
+function StaffSubmissionPage() {
+    const [data, setData] = useState([])
+    useEffect(() => {
+        axios.get('https://unibackend.azurewebsites.net/api/topic')
+            .then((getData) => {
+                setData(getData.data)
+            })
+    })
+    // const setId = (id) => {
+    //     console.log(id)
+    // }
     const { submission } = useContext(GlobalContext);
     console.log(submission)
 
     return (
-        <div className="">
-            <div className="topnav">
-                <NavLink to={"/HomePageStaff1"}>Home</NavLink>
-                <NavLink to={"/StaffSubmission1"}>Staff Submission</NavLink>
-                <div className="edit-acc">
-                    <p>Xin chào</p><a href="AccountStaff1">Nguyễn Văn B</a>
-                    <Link to={"/login"}>Logout</Link>
-                </div>
-            </div>
-
-            <div className="body-staffsubmission">
-                <h1>Staff Submission</h1>
-                {submission && submission.length ? '' : 'No Item...'}
-                {submission.map((submission) => (
+        <div className=''>
+            <h1>Staff Submission page</h1>
+            <div className='Submission'>
+                {data && data.length ? '' : 'No Item...'}
+                {data.map((data) => (
                     <div className='icons' >
-                        <strong key={submission.id}>Name: {submission.name}</strong>
-                        <div className='deadline_1'> <strong>Deadline_1: </strong>{submission.deadline_1}</div>
-                        <div className='deadline_2'> <strong>Deadline_2: </strong>{submission.deadline_2}</div>
+                        <strong key={data.id}>{data.topicName}</strong>
+                        <div className='deadline_1'>{data.closureDate}</div>
+                        <div className='deadline_2'>{data.finalClosureDate}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/listOfIdeas/${submission.id}`}><span title="detail"><FaInfoCircle /></span></NavLink>
+                            <span title="detail" ><FaInfoCircle /></span>
                         </div>
                     </div>
                 ))}
             </div>
         </div>
-    )
+    );
 }
 
-export default StaffSubmissionPage
+export default StaffSubmissionPage;
