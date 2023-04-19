@@ -29,35 +29,42 @@ function StaffSubmission() {
   // }
   const { submission } = useContext(GlobalContext);
   console.log(submission);
-  return (
-    <div className="">
-      <h1>Staff Submission page</h1>
+  const role = localStorage.getItem('role')
+  if (role === "manager") {
+    return (
+      <div className="">
+        <h1>Staff Submission page</h1>
 
-      <div className="Submission">
-        {data && data.length ? "" : "No Item..."}
-        {data.map((data) => (
-          <div className="icons">
-            <strong key={data.id}>{data.topicName}</strong>
-            <div className="deadline_1">{data.closureDate}</div>
-            <div className="deadline_2">{data.finalClosureDate}</div>
-            <div className="icon-cate">
-              <span title="detail">
-                <FaInfoCircle />
-              </span>
-              <span title="folder">
-                <FaFolder />
-              </span>
-              <button onClick={handleOnClick} className="btn btn-dark">
-                {/* <ExportToCsv fileName="users">
+        <div className="Submission">
+          {data && data.length ? "" : "No Item..."}
+          {data.map((data) => (
+            <div className="icons">
+              <strong key={data.id}>{data.topicName}</strong>
+              <div className="deadline_1">{data.closureDate}</div>
+              <div className="deadline_2">{data.finalClosureDate}</div>
+              <div className="icon-cate">
+                <span title="detail">
+                  <FaInfoCircle />
+                </span>
+                <span title="folder">
+                  <FaFolder />
+                </span>
+                <button onClick={handleOnClick} className="btn btn-dark">
+                  {/* <ExportToCsv fileName="users">
                   <FaFileExcel />
                 </ExportToCsv> */}
-              </button>
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <h1>no Auth</h1>
+    )
+  }
 }
 
 export default StaffSubmission;
