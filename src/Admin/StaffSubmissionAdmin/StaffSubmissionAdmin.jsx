@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaInfoCircle } from 'react-icons/fa'
-import "./StaffSubmission1.css";
+// import '../Submission/Submission'
+import {
+    FaInfoCircle
+} from 'react-icons/fa';
+import "./StaffSubmissionAdmin.css";
 import { GlobalContext } from '../../Context/GlobalState';
 import axios from 'axios';
 
-function StaffSubmission1() {
+function StaffSubmissionAdmin() {
     const [data, setData] = useState([])
     useEffect(() => {
         axios.get('https://unibackend.azurewebsites.net/api/topic')
@@ -38,4 +41,4 @@ function StaffSubmission1() {
     );
 }
 
-export default StaffSubmission1;
+export default StaffSubmissionAdmin;

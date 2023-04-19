@@ -1,18 +1,35 @@
-import React, { useContext, useEffect, useState } from "react";
-import "../Submission/Submission";
-import { FaFileExcel, FaFolder, FaInfoCircle } from "react-icons/fa";
-import "./StaffSubmission.css";
-import { GlobalContext } from "../../Context/GlobalState";
-import axios from "axios";
-import ExportToCsv from "../../Components/ExportFunction";
-
-axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
-  "token"
-)}`;
-
+import React, { useContext, useEffect, useState } from 'react';
+import '../Submission/Submission'
+import {
+    FaFileExcel,
+    FaFolder,
+    FaInfoCircle
+} from 'react-icons/fa'
+import './StaffSubmission.css'
+import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../Context/GlobalState';
+import axios from 'axios';
 function StaffSubmission() {
-  const handleOnClick = (e) => {
+    const handleOnClick = (e) => {
+        return (
+            <a href="https://unibackend.azurewebsites.net/api/idea/csv"></a>
+        )
+    };
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios
+            .get("https://unibackend.azurewebsites.net/api/topic")
+            .then((getData) => {
+                setData(getData.data);
+            });
+    }, []);
+    // const setId = (id) => {
+    //     console.log(id)
+    // }
+    const { submission } = useContext(GlobalContext);
+    console.log(submission);
     return (
+
       <a href="https://unibackend.azurewebsites.net/api/idea/csv"></a>
     )
   };
