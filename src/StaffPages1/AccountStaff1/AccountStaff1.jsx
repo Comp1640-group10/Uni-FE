@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AccountStaff1.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
@@ -19,17 +19,9 @@ const AccountStaff1 = () => {
 
     return (
         <div className="">
-            <div className="topnav">
-                <NavLink to={"/HomePageStaff1"}>Home</NavLink>
-                <NavLink to={"/StaffSubmission1"}>Staff Submission</NavLink>
-                <div className="edit-acc">
-                    <p>Xin chào</p><a href="AccountStaff1">Nguyễn Văn A</a>
-                    <Link to={"/login"}>Logout</Link>
-                </div>
-            </div>
-
             <div className="accordion">
                 <Accordion>
+                    <Link to={"/HomePageStaff1"} className="backtoaccount">Back</Link>
                     <h1>Account Edit</h1>
                     <Accordion.Item eventKey="0">
                         <Accordion.Header><h2>Profile</h2></Accordion.Header>
@@ -53,7 +45,6 @@ const AccountStaff1 = () => {
                     <Accordion.Item eventKey="1">
                         <Accordion.Header><h2>Email</h2></Accordion.Header>
                         <Accordion.Body>
-
                             <div className="email-form">
                                 <h1>Change Email</h1>
                                 <form action="">
@@ -103,23 +94,6 @@ const AccountStaff1 = () => {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="3">
-                        <Accordion.Header><h2>Two-Factor authentication</h2></Accordion.Header>
-                        <Accordion.Body>
-                            <h1>Two-factor authentication (2FA)</h1>
-                            <h2>Authenticator app</h2>
-                            <div className="setup-reset-authen">
-                                <form action="">
-                                    <button className="btn-setupauthen">
-                                        <Link className="setuplink" to={"/EnableAuthenticator"}>Set up authenticator app</Link>
-                                    </button>
-                                    <button className="btn-resetauthen">
-                                        <Link className="resetlink" to={"/ResetAuthenticator"}>Resut authenticator app</Link>
-                                    </button>
-                                </form>
-                            </div>
-                        </Accordion.Body>
-                    </Accordion.Item>
-                    <Accordion.Item eventKey="4">
                         <Accordion.Header><h2>Personal data</h2></Accordion.Header>
                         <Accordion.Body>
                             <div className="body-main">
@@ -129,7 +103,7 @@ const AccountStaff1 = () => {
                                 <form action="" className="confirm-data">
                                     <button className="btn-downloaddata">Down load</button>
                                     <button className="btn-deletedata">
-                                        <Link className="link-deletedata" to={"/DeletePersonalData"}>
+                                        <Link className="link-deletedata" to={"/deletepersonaldata"}>
                                             Delete
                                         </Link>
                                     </button>

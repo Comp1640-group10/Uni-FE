@@ -1,36 +1,12 @@
-/* Navbar */
-.topnav {
-  background-color: #333;
-  overflow: hidden;
-  width: 100%;
-  top: 0px;
-}
 
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  border-bottom: 3px solid transparent;
-}
-
-.topnav a:hover {
-  border-bottom: 3px solid red;
-}
-
-.edit-acc {
-  display: flex;
-  float:right
-}
 /* Accordion */
 .accordion {
   margin: 15px;
   margin-top: 50px;
 }
-  
+.accordion h1 {
+  margin-top: 18px;
+}
 /* Profile */
 .form-profile {
   margin: 50px 400px;
@@ -179,15 +155,13 @@
   background-color: dodgerblue;
 }
 
-/* Enable Authenticator */
-.breadcurmb {
-  margin: 20px 20px;
-}
-.breadcurmb .breadcurmblink:hover {
-  color: red;
+/* Setup Authenticator */
+.bodycontent {
+  margin: 25px;
 }
 .bodycontent h1, p {
   margin-left: 25px;
+  margin-bottom: 25px;
 }
 .contents {
   margin-left: 30px;
@@ -218,7 +192,18 @@
 .btn-verify:hover {
   background-color: dodgerblue;
 }
-
+.btn-back {
+  margin: 33px;
+  padding: 12px 31px;
+  background-color: #636262;
+  border-radius: 16px;
+}
+.btn-back:hover {
+  background-color: #959595;
+}
+.btn-cancellink {
+  color: white;
+}
 /* Reset Authenticator */
 .bodymain {
   margin: 30px 50px;
@@ -269,8 +254,8 @@
 .body-personal {
   margin: 25px;
 }
-.link-breadcrumdpersonal:hover {
-  color: red;
+.body-personal h1 {
+  margin-top: 18px;
 }
 .input-deletepersonal {
   padding: 10px;
@@ -291,4 +276,7 @@
 .form-deletepersonal {
   margin: 25px;
   float:left ;
+}
+.backtoaccount {
+  font-size: 18px;
 }
