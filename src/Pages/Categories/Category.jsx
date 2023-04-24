@@ -44,52 +44,52 @@ function Category() {
         getData();
       });
   };
-  const role = localStorage.getItem('role')
-  if (role === "manager") {
-    return (
-      <div className="">
-        <h1>Categories page</h1>
+  // const role = localStorage.getItem('role')
+  // if (role === "manager") {
+  return (
+    <div className="">
+      <h1>Categories page</h1>
 
-        <div className="category">
-          <div className="btn">
-            <Button>
-              <NavLink to="/addCategory">new add</NavLink>
-            </Button>
-          </div>
+      <div className="category">
+        <div className="btn">
+          <Button>
+            <NavLink to="/addCategory">new add</NavLink>
+          </Button>
+        </div>
 
-          {data && data.length ? "" : "No Item..."}
-          {data.map((datas) => (
-            <div className="icons" key={datas.id}>
-              <div>{datas.categoryName}</div>
-              <div className="icon-cate">
-                <Link
-                  to={`/editCategory/${datas.id}`}
-                  onClick={() => setToLocalStorage(datas.id, datas.categoryName)}
-                >
-                  {" "}
-                  <span title="edit">
-                    <Button>
-                      <FaEdit />
-                    </Button>
-                  </span>
-                </Link>
-                <span title="delete">
-                  <Button onClick={() => deleteItem(datas.id)}>
-                    <FaTrash />
+        {data && data.length ? "" : "No Item..."}
+        {data.map((datas) => (
+          <div className="icons" key={datas.id}>
+            <div>{datas.categoryName}</div>
+            <div className="icon-cate">
+              <Link
+                to={`/editCategory/${datas.id}`}
+                onClick={() => setToLocalStorage(datas.id, datas.categoryName)}
+              >
+                {" "}
+                <span title="edit">
+                  <Button>
+                    <FaEdit />
                   </Button>
                 </span>
-              </div>
+              </Link>
+              <span title="delete">
+                <Button onClick={() => deleteItem(datas.id)}>
+                  <FaTrash />
+                </Button>
+              </span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    );
-  }
-  else {
-    return (
-      <h1>No Auth</h1>
-    )
-  }
+    </div>
+  );
+  // }
+  //   else {
+  //   return (
+  //     <h1>No Auth</h1>
+  //   )
+  // }
 }
 
 export default Category;

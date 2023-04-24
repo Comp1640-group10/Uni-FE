@@ -81,7 +81,7 @@ const publicRoutes = [
   // Pages
   { path: "/", component: User },
   { path: "/adduser", component: AddUser },
-  { path: "/edituser", component: EditUser },
+  { path: "/edituser/:id", component: EditUser },
   { path: "/viewuser", component: ViewUser },
   { path: "/category", component: Category },
   { path: "/addCategory", component: AddCategory },
