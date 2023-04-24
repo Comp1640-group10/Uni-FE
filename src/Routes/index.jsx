@@ -34,18 +34,23 @@ import EditDepartment from "../Pages/Departments/EditDepartment";
 import Role from "../Pages/Role/Role";
 import AddRole from "../Pages/Role/AddRole";
 import EditRole from "../Pages/Role/EditRole";
-import StaffSubmission from "../Pages/StaffSubmission2/StaffSubmission";
+import StaffSubmission2 from "../Pages/StaffSubmission2/StaffSubmission";
 import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
-import DetailsIdeas from "../Pages/StaffSubmission2/DetailsIdeas";
+import NewStaffSubmission from "../Pages/StaffSubmission/NewStaffSubmission";
+import StaffSubmission from "../Pages/StaffSubmission/StaffSubmission";
+import ListStaffSubmission from "../Pages/StaffSubmission/ListStaffSubmission";
+import DetailsStaffSubmission from "../Pages/StaffSubmission/DetailsStaffSubmission";
+import ListofIdeas from "../Pages/StaffSubmission2/ListofIdeas";
 import Submission from "../Pages/Submission/Submission";
 import AddSubmission from "../Pages/Submission/AddSubmission";
 import EditSubmission from "../Pages/Submission/EditSubmission";
-import AddnewIdeas from "../Pages/StaffSubmission2/AddnewIdeas";
 
 // Staff Page 1
 import HomePageStaff1 from "../StaffPages1/Home/HomePageStaff1";
 import AccountStaff1 from "../StaffPages1/AccountStaff1/AccountStaff1";
-import DeletePersonaldata from "../StaffPages1/AccountStaff1/DeletePersonaldata";
+import SetupAuthenticator from "../StaffPages1/AccountStaff1/SetupAuthenticator";
+import ResetAuthenticator from "../StaffPages1/AccountStaff1/ResetAuthenticator";
+import DeletePersonaldata from "../StaffPages1/AccountStaff1/ResetAuthenticator";
 import StaffSubmission1 from "../StaffPages1/StaffSubmissionPage1/StaffSubmission1";
 import DetailsStaffSubmission1 from "../StaffPages1/StaffSubmissionPage1/DetailsStaffSubmission1";
 import ListStaffSubmission1 from "../StaffPages1/StaffSubmissionPage1/ListStaffSubmission1";
@@ -53,6 +58,8 @@ import ListStaffSubmission1 from "../StaffPages1/StaffSubmissionPage1/ListStaffS
 // Staff Page 2
 import HomePageStaff from "../StaffPages2/Home/HomePageStaff";
 import AccountInfo from "../StaffPages2/AccountInfo/AccountInfo";
+import SetupAuthenticator2 from "../StaffPages2/AccountInfo/SetupAuthenticator2";
+import ResetAuthenticator2 from "../StaffPages2/AccountInfo/ResetAuthenticator2";
 import DeletePersonaldata2 from "../StaffPages2/AccountInfo/DeletePersonaldata2";
 import StaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/StaffSubmissionPage";
 import ListStaffSubmissionPage from "../StaffPages2/StaffSubmissionPage2/ListStaffSubmissionPage";
@@ -79,7 +86,7 @@ const publicRoutes = [
   { path: "/editsubmissions", component: EditSubmissions },
   { path: "/submissions", component: Submissions },
   // Pages
-  { path: "/", component: User },
+  { path: "/", component: Home },
   { path: "/adduser", component: AddUser },
   { path: "/edituser", component: EditUser },
   { path: "/viewuser", component: ViewUser },
@@ -94,25 +101,32 @@ const publicRoutes = [
   { path: "/addRole", component: AddRole },
   { path: "/editRole/:id", component: EditRole },
   { path: "/staffSubmission", component: StaffSubmission },
-  { path: "/detailsideas", component: DetailsIdeas },
+  { path: "/liststaffsubmission", component: ListStaffSubmission },
+  { path: "/newstaffsubmission", component: NewStaffSubmission },
+  { path: "/detailsstaffsubmission", component: DetailsStaffSubmission },
   { path: "/listOfIdeas/:id", component: ListofIdeas },
   { path: "/submission", component: Submission },
   { path: "/addSubmission", component: AddSubmission },
   { path: "/editSubmission/:id", component: EditSubmission },
+
   { path: "/addsubmission", component: AddSubmission },
   { path: "/editsubmission", component: EditSubmission },
   { path: "/listofideas", component: ListofIdeas },
-  { path: "/addnewideas", component: AddnewIdeas },
+  { path: "/staffsubmission", component: StaffSubmission },
   // Staff Page 1
   { path: "/homepagestaff1", component: HomePageStaff1, Layouts: Navbar },
   { path: "/staffsubmission1", component: StaffSubmission1, Layouts: Navbar },
   { path: "/accountstaff1", component: AccountStaff1, Layouts: Navbar },
+  { path: "/setupauthenticator", component: SetupAuthenticator },
+  { path: "/resetauthenticator", component: ResetAuthenticator },
   { path: "/deletepersonaldata", component: DeletePersonaldata },
   { path: "/liststaffsubmission1", component: ListStaffSubmission1, Layouts: Navbar },
   { path: "/detailsstaffsubmission1", component: DetailsStaffSubmission1 },
   // Staff Page 2
   { path: "/homepagestaff", component: HomePageStaff },
   { path: "/accountinfo", component: AccountInfo },
+  { path: "/setupauthenticator2", component: SetupAuthenticator2 },
+  { path: "/resetauthenticator2", component: ResetAuthenticator2 },
   { path: "/deletepersonaldata2", component: DeletePersonaldata2 },
   { path: "/staffsubmissionpage1", component: StaffSubmissionPage },
   { path: "/liststaffsubmissionpage", component: ListStaffSubmissionPage },

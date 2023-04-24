@@ -1,10 +1,9 @@
 import React from "react";
-import "./StaffSubmission.css";
 import { FormGroup, Form } from "reactstrap";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const AddnewIdeas = () => {
+const NewStaffSubmission = () => {
     return (
         <div className="">
             <div className="header">
@@ -14,9 +13,13 @@ const AddnewIdeas = () => {
             <div className="input-addidea">
                 <FormGroup>
                     <Form>
-
                         <div className="input">
                             <h2>Title</h2>
+                            <input type="text" />
+                        </div>
+
+                        <div className="input">
+                            <h2>Brief</h2>
                             <input type="text" />
                         </div>
 
@@ -34,7 +37,13 @@ const AddnewIdeas = () => {
                             <input type="checkbox" name="" id="" />Term ABC
                         </div>
 
-
+                        <div className="dropdown">
+                            <select name="" id="">
+                                <option value="">ABC</option>
+                                <option value="">ABsadC</option>
+                                <option value="">ABCsad</option>
+                            </select>
+                        </div>
 
                         <div className="button">
                             <button type="submit" className="btn-create">Create</button>
@@ -47,4 +56,4 @@ const AddnewIdeas = () => {
     );
 };
 
-export default AddnewIdeas
+export default NewStaffSubmission
