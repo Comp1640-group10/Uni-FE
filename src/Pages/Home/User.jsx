@@ -25,47 +25,53 @@ function User() {
         getData();
       });
   };
-  const { submission } = useContext(GlobalContext);
-  console.log(submission);
-  return (
-    <div className="">
-      <h1>User page</h1>
-      <div className="user">
-        <div className="btn">
-          <Button>
-            <NavLink to="/addUser">new add</NavLink>
-          </Button>
-        </div>
-        {data && data.length ? "" : "No Item..."}
-        {data.map((data) => (
-          <div className="icons">
-            <strong key={data.id}>{data.fullName}</strong>
-            <div className="icon-cate">
-              <Link to={`/viewUser/${data.id}`}>
-                <span title="view">
-                  <Button>
-                    <FaInfoCircle />
-                  </Button>
-                </span>
-              </Link>
-              <Link>
-                <span title="edit">
-                  <Button>
-                    <FaEdit />
-                  </Button>
-                </span>
-              </Link>
-              <span title="delete">
-                <Button onClick={() => deleteItem(data.id)}>
-                  <FaTrash />
-                </Button>
-              </span>
-            </div>
+  const role = localStorage.getItem("role")
+  if (role === "manager") {
+    return (
+      <div className="">
+        <h1>User page</h1>
+        <div className="user">
+          <div className="btn">
+            <Button>
+              <NavLink to="/addUser">new add</NavLink>
+            </Button>
           </div>
-        ))}
+          {data && data.length ? "" : "No Item..."}
+          {data.map((data) => (
+            <div className="icons">
+              <strong key={data.id}>{data.fullName}</strong>
+              <div className="icon-cate">
+                <Link to={`/viewUser/${data.id}`}>
+                  <span title="view">
+                    <Button>
+                      <FaInfoCircle />
+                    </Button>
+                  </span>
+                </Link>
+                <Link>
+                  <span title="edit">
+                    <Button>
+                      <FaEdit />
+                    </Button>
+                  </span>
+                </Link>
+                <span title="delete">
+                  <Button onClick={() => deleteItem(data.id)}>
+                    <FaTrash />
+                  </Button>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
+  else {
+    return (
+      <h1>no Auth</h1>
+    )
+  }
 }
 
 export default User;

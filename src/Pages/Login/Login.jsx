@@ -7,7 +7,7 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   //const [token, setToken] = useState(""); 
-  
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -27,6 +27,7 @@ const Login = () => {
       const data = response.data;
       console.log(data);
       localStorage.setItem('token', data.data);
+      localStorage.setItem('role', data.role);
     } catch (error) {
       console.error(error);
     }

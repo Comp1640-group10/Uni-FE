@@ -35,39 +35,47 @@ function Role() {
             .then(() => {
                 getData();
             })
-    }
-    const { submission } = useContext(GlobalContext);
-    console.log(submission)
+    };
 
-    return (
-        <div className=''>
 
-            <h1>Role page</h1>
+    const roles = localStorage.getItem("role")
+    if (roles === "manager") {
+        return (
+            <div className=''>
 
-            <div className='role'>
+                <h1>Role page</h1>
 
-                <div className='btn'>
-                    <Button>
-                        <NavLink to='/addRole'>
-                            new add
-                        </NavLink>
-                    </Button>
-                </div>
+                <div className='role'>
 
-                {role && role.length ? '' : 'No Item...'}
-                {role.map((role) => (
-                    <div className='icons' key={role.id}>
-                        <div className='id'> {role.id}</div>
-                        <div className='name'>{role.roleName}</div>
-                        <div className='icon-cate'>
-                            <NavLink to={`/editRole/${role.id}`} onChange={() => setToLocalStorage(role.id, role.roleName)}><span title="edit"><Button><FaEdit /></Button></span></NavLink>
-                            <span title="delete" ><Button onClick={() => deleteItem(role.id)}><FaTrash /></Button></span>
-                        </div>
+                    <div className='btn'>
+                        <Button>
+                            <NavLink to='/addRole'>
+                                new add
+                            </NavLink>
+                        </Button>
                     </div>
-                ))}
+
+                    {role && role.length ? '' : 'No Item...'}
+                    {role.map((role) => (
+                        <div className='icons' key={role.id}>
+                            <div className='id'> {role.id}</div>
+                            <div className='name'>{role.roleName}</div>
+                            <div className='icon-cate'>
+                                <NavLink to={`/editRole/${role.id}`} onChange={() => setToLocalStorage(role.id, role.roleName)}><span title="edit"><Button><FaEdit /></Button></span></NavLink>
+                                <span title="delete" ><Button onClick={() => deleteItem(role.id)}><FaTrash /></Button></span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
+    else {
+        return (
+
+            <h1>No auth</h1>
+        )
+    }
 }
 
 export default Role;

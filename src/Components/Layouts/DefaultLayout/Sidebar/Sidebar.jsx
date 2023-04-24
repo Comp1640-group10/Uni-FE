@@ -69,6 +69,7 @@ function Sidebar({ children }) {
             <FaBars onClick={toggle} />
           </div>
         </div>
+
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}
