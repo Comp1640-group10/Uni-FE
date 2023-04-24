@@ -102,6 +102,23 @@ const AccountInfo = () => {
                             </div>
                         </Accordion.Body>
                     </Accordion.Item>
+                    <Accordion.Item eventKey="3">
+                        <Accordion.Header><h2>Two-Factor authentication</h2></Accordion.Header>
+                        <Accordion.Body>
+                            <h1>Two-factor authentication (2FA)</h1>
+                            <h2>Authenticator app</h2>
+                            <div className="setup-reset-authen">
+                                <form action="">
+                                    <button className="btn-setupauthen">
+                                        <Link className="setuplink" to={"/EnableAuthenticator"}>Set up authenticator app</Link>
+                                    </button>
+                                    <button className="btn-resetauthen">
+                                        <Link className="resetlink" to={"/ResetAuthenticator"}>Resut authenticator app</Link>
+                                    </button>
+                                </form>
+                            </div>
+                        </Accordion.Body>
+                    </Accordion.Item>
                     <Accordion.Item eventKey="4">
                         <Accordion.Header><h2>Personal data</h2></Accordion.Header>
                         <Accordion.Body>

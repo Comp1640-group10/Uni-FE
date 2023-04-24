@@ -1,12 +1,4 @@
 import React from "react";
-import "./HomePageStaff1.css";
-import {
-    BsReverseLayoutTextSidebarReverse,
-    BsList,
-    BsPerson
-} from "react-icons/bs";
-
-import { Link } from "react-router-dom";
 
 const HomePageStaff1 = () => {
     const homepagestaff1item = [
@@ -30,28 +22,6 @@ const HomePageStaff1 = () => {
                     </div>
                 ))
             }
-
-            <div className="bodybox">
-                <div>
-                    <h2>Staff Submission</h2>
-                    <button>
-                        <Link to={"/StaffSubmission1"} className="btn-link"><BsReverseLayoutTextSidebarReverse /></Link>
-                    </button>
-                </div>
-                <div>
-                    <h2>List Staff Submission</h2>
-                    <button>
-                        <Link to={"/liststaffsubmission1"} className="btn-link"><BsList /></Link>
-                    </button>
-                </div>
-                <div>
-                    <h2>Account</h2>
-                    <span><button>
-                        <Link to={"/accountstaff1"} className="btn-link"><BsPerson /></Link>
-                    </button></span>
-                </div>
-
-            </div>
         </div>
     )
 }

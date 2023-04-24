@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from "react-router-dom";
-import { Button, } from 'reactstrap';
+
+import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 const ListofIdeas = () => {
@@ -18,13 +18,6 @@ const ListofIdeas = () => {
             <NavLink to='/staffsubmission'>Call back</NavLink>
             <h1>List of Ideas</h1>
             <div>
-                <div className='btn'>
-                    <Button>
-                        <NavLink to='/addnewideas'>
-                            new add
-                        </NavLink>
-                    </Button>
-                </div>
                 {/* <div className="name">
                     <div className="Titile_name">{this.props.name}</div>
                 </div> */}
@@ -34,11 +27,9 @@ const ListofIdeas = () => {
                         <strong key={data.id}>Name: {data.topicName}</strong>
                         <div className='deadline_1'>Deadline_1: {data.closureDate}</div>
                         <div className='deadline_2'>Deadline_2: {data.finalClosureDate}</div>
-                        <div className="detailsIdeas">
-                            <button><Link to={"/DetailsIdeas"} className='btn-detailslink'>{data.id}</Link></button>
-                        </div>
+                        <div className="like">Like: </div>
+                        <div className="dislike">Dislike: </div>
                     </div>
-
                 ))}
             </div>
         </div>
