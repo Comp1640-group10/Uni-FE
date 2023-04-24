@@ -50,46 +50,46 @@ function Submission() {
     }
     const { submission } = useContext(GlobalContext);
     console.log(submission)
-    const role = localStorage.getItem('role')
-    if (role === "manager") {
-        return (
+    // const role = localStorage.getItem('role')
+    // if (role === "manager") {
+    return (
 
-            <div className=''>
+        <div className=''>
 
-                <h1>Staff Submission page</h1>
+            <h1>Staff Submission page</h1>
 
-                <div className='Submission'>
+            <div className='Submission'>
 
-                    <div className='btn'>
-                        <Button>
-                            <NavLink to='/addSubmission'>
-                                new add
-                            </NavLink>
-                        </Button>
-                    </div>
-
-                    {data && data.length ? '' : 'No Item...'}
-                    {data.map((datas) => (
-                        <div className='icons' key={datas.id}>
-                            <div>{datas.topicName}</div>
-                            <div className='deadline_1'>{datas.closureDate}</div>
-                            <div className='deadline_2'>{datas.finalClosureDate}</div>
-                            <div className='icon-cate'>
-                                <Link to={`/editSubmission/${datas.id}`} onClick={() => setToLocalStorage(datas.id, datas.topicName, datas.closureDate, datas.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
-                                <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
-
-                            </div>
-                        </div>
-                    ))}
+                <div className='btn'>
+                    <Button>
+                        <NavLink to='/addSubmission'>
+                            new add
+                        </NavLink>
+                    </Button>
                 </div>
+
+                {data && data.length ? '' : 'No Item...'}
+                {data.map((datas) => (
+                    <div className='icons' key={datas.id}>
+                        <div>{datas.topicName}</div>
+                        <div className='deadline_1'>{datas.closureDate}</div>
+                        <div className='deadline_2'>{datas.finalClosureDate}</div>
+                        <div className='icon-cate'>
+                            <Link to={`/editSubmission/${datas.id}`} onClick={() => setToLocalStorage(datas.id, datas.topicName, datas.closureDate, datas.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
+
+                        </div>
+                    </div>
+                ))}
             </div>
-        );
-    }
-    else {
-        return (
-            <h1>No Auth</h1>
-        )
-    }
+        </div>
+    );
+    // }
+    // else {
+    //     return (
+    //         <h1>No Auth</h1>
+    //     )
+    // }
 }
 
 export default Submission;
