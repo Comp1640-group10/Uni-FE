@@ -17,32 +17,35 @@ function User() {
   };
   useEffect(() => {
     getData();
-  });
-
-         const deleteItem = (id) => {
+  }, []);
+  const deleteItem = (id) => {
     axios
       .delete(`https://unibackend.azurewebsites.net/api/user/${id}`)
       .then(() => {
         getData();
       });
   };
-  const { submission } = useContext(GlobalContext);
-  console.log(submission);
+  const setToLocalStorage = (id, fullName) => {
+    localStorage.setItem('id', id)
+    localStorage.setItem('fullName', fullName)
+
+
+  }
+  // const role = localStorage.getItem("role")
+  // if (role === "manager") {
   return (
     <div className="">
       <h1>User page</h1>
-
       <div className="user">
         <div className="btn">
           <Button>
-            <NavLink to="/addUser">New add</NavLink>
+            <NavLink to="/addUser">new add</NavLink>
           </Button>
         </div>
         {data && data.length ? "" : "No Item..."}
         {data.map((data) => (
           <div className="icons">
             <strong key={data.id}>{data.fullName}</strong>
-
             <div className="icon-cate">
               <Link to={`/viewUser/${data.id}`}>
                 <span title="view">
@@ -51,9 +54,9 @@ function User() {
                   </Button>
                 </span>
               </Link>
-              <Link>
+              <Link to={`/edituser/${data.id}`}>
                 <span title="edit">
-                  <Button>
+                  <Button onChange={() => setToLocalStorage(data.id, data.fullName)}>
                     <FaEdit />
                   </Button>
                 </span>
@@ -69,6 +72,12 @@ function User() {
       </div>
     </div>
   );
+  // }
+  //   else {
+  //   return (
+  //     <h1>no Auth</h1>
+  //   )
+  // }
 }
 
 export default User;

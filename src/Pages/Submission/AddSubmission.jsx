@@ -9,9 +9,10 @@ import {
 } from 'reactstrap';
 import './Addsubmission.scss';
 import { GlobalContext } from '../../Context/GlobalState';
-import { v4 as uuid } from 'uuid'
-import axois from 'axios'
-import './AddSubmission'
+import { v4 as uuid } from 'uuid';
+import axois from 'axios';
+import './AddSubmission';
+
 function AddSubmission(props) {
     const [topicName, setTopicName] = useState('');
     const [closureDate, setClosureDate] = useState('');
@@ -21,7 +22,6 @@ function AddSubmission(props) {
     const navigate = useNavigate();
 
     const onSubmit = () => {
-
         axois.post('https://unibackend.azurewebsites.net/api/topic', {
             topicName,
             closureDate,

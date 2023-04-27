@@ -80,3 +80,9 @@ svg {
     height: 25px;
     width: 25px;
 }
+
+
+strong {
+    font-weight: bolder;
+    margin-left: 10px;
+}

@@ -45,11 +45,6 @@ function Sidebar({ children }) {
       icon: <FaClipboardList />,
     },
     {
-      path: "/Statistics",
-      name: "Statistics",
-      icon: <FaChartLine />,
-    },
-    {
       path: "/submission",
       name: "Submission",
       icon: <FaVoteYea />,
@@ -74,6 +69,7 @@ function Sidebar({ children }) {
             <FaBars onClick={toggle} />
           </div>
         </div>
+
         {menuItem.map((item, index) => (
           <NavLink
             to={item.path}

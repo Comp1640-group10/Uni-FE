@@ -7,23 +7,34 @@ import {
 } from 'react-icons/fa'
 import './Addsubmission.scss'
 import { GlobalContext } from '../../Context/GlobalState';
-import { Button, } from 'reactstrap';
+import { Button } from 'reactstrap';
 import axios from 'axios';
+axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('access_token')}`;
 function Submission() {
+
     const [data, setData] = useState([])
+    // let date = data.toString()
+
     const getData = () => {
         axios.get('https://unibackend.azurewebsites.net/api/topic')
             .then((res) => {
+                console.log("before convert:", res.data)
+                for (let x of res.data) {
+                    x.closureDate = x.closureDate.substring(0, 10)
+                    x.finalClosureDate = x.finalClosureDate.substring(0, 10)
+                }
+
+                console.log("after convert:", res.data)
                 setData(res.data)
             })
     }
+    console.log("getData", getData)
     // const { submission } = useContext(GlobalContext);
     // console.log(submission)
-    const setDatatoItem = (id, topicName, closureDate, finalClosureDate) => {
-        console.log(id)
+    const setToLocalStorage = (id, topicName, closureDate, finalClosureDate) => {
         localStorage.setItem('id', id)
         localStorage.setItem('topicName', topicName)
-        localStorage.setItem('closureDate', closureDate)
+        localStorage.setItem('closureDate', closureDate.toDateString())
         localStorage.setItem('finalClosureDate', finalClosureDate)
 
     }
@@ -39,6 +50,8 @@ function Submission() {
     }
     const { submission } = useContext(GlobalContext);
     console.log(submission)
+    // const role = localStorage.getItem('role')
+    // if (role === "manager") {
     return (
 
         <div className=''>
@@ -54,14 +67,15 @@ function Submission() {
                         </NavLink>
                     </Button>
                 </div>
+
                 {data && data.length ? '' : 'No Item...'}
                 {data.map((datas) => (
-                    <div className='icons' >
-                        <strong key={datas.id}>{datas.topicName}</strong>
+                    <div className='icons' key={datas.id}>
+                        <div>{datas.topicName}</div>
                         <div className='deadline_1'>{datas.closureDate}</div>
                         <div className='deadline_2'>{datas.finalClosureDate}</div>
                         <div className='icon-cate'>
-                            <Link to={`/editSubmission/${datas.id}`} onChange={() => setDatatoItem(datas.id, datas.topicName, datas.closureDate, datas.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
+                            <Link to={`/editSubmission/${datas.id}`} onClick={() => setToLocalStorage(datas.id, datas.topicName, datas.closureDate, datas.finalClosureDate)}> <span title="edit" ><Button><FaEdit /></Button></span></Link>
                             <span title="delete" ><Button onClick={() => deleteItem(datas.id)}><FaTrash /></Button></span>
 
                         </div>
@@ -70,6 +84,12 @@ function Submission() {
             </div>
         </div>
     );
+    // }
+    // else {
+    //     return (
+    //         <h1>No Auth</h1>
+    //     )
+    // }
 }
 
 export default Submission;

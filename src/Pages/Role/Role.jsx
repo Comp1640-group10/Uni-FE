@@ -10,6 +10,7 @@ import { GlobalContext } from '../../Context/GlobalState';
 import axios from 'axios';
 function Role() {
     const [role, setrole] = useState([])
+    const [id, setId] = useState('')
     const getData = () => {
 
         axios.get('https://unibackend.azurewebsites.net/api/role')
@@ -20,18 +21,25 @@ function Role() {
     useEffect(() => {
         getData();
     }, [])
+    const setToLocalStorage = (id, roleName) => {
+        localStorage.setItem('id', id)
+        localStorage.setItem('roleName', roleName)
+
+
+    }
     // const setId = (id) => {
     //     console.log(id)
     // }
-    const deleteItem = (id) => {
+    const deleteItem = () => {
         axios.delete(`https://unibackend.azurewebsites.net/api/role/${id}`)
             .then(() => {
                 getData();
             })
-    }
-    const { submission } = useContext(GlobalContext);
-    console.log(submission)
+    };
 
+
+    // const roles = localStorage.getItem("role")
+    // if (roles === "manager") {
     return (
         <div className=''>
 
@@ -53,7 +61,7 @@ function Role() {
                         <div className='id'> {role.id}</div>
                         <div className='name'>{role.roleName}</div>
                         <div className='icon-cate'>
-                            <NavLink to={`/editRole/${role.id}`}><span title="edit"><Button><FaEdit /></Button></span></NavLink>
+                            <NavLink to={`/editRole/${role.id}`} onChange={() => setToLocalStorage(role.id, role.roleName)}><span title="edit"><Button><FaEdit /></Button></span></NavLink>
                             <span title="delete" ><Button onClick={() => deleteItem(role.id)}><FaTrash /></Button></span>
                         </div>
                     </div>
@@ -61,6 +69,13 @@ function Role() {
             </div>
         </div>
     );
+    // }
+    // else {
+    //     return (
+
+    //         <h1>No auth</h1>
+    //     )
+    // }
 }
 
 export default Role;

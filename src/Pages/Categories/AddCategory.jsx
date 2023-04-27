@@ -10,19 +10,17 @@ import {
 import './AddCategory.scss';
 import { GlobalContext } from '../../Context/GlobalState';
 import { v4 as uuid } from 'uuid'
-
+import axios from 'axios';
 function AddCategory() {
     const [name, setName] = useState('');
     const { addCategory } = useContext(GlobalContext);
     const navigate = useNavigate();
 
     const onSubmit = () => {
-
-        const newCategory = {
-            id: uuid(),
-            name: name,
-        };
-        addCategory(newCategory);
+        axios.post('https://unibackend.azurewebsites.net/api/category', {
+            name
+        })
+        // addSubmission(newSubmission);
         navigate("/category");
     };
     return (

@@ -14,26 +14,24 @@ const HomePageStaff = () => {
     ]
     return (
         <div className="">
-            <div className="">
-                <div className="topnav">
-                    <NavLink to={"/HomePageStaff"}>Home</NavLink>
-                    <NavLink to={"/StaffSubmissionPage"}>Staff Submission</NavLink>
-                    <div className="edit-acc">
-                        <p>Xin chào</p><a href="AccountInfo">Nguyễn Văn B</a>
-                        <Link to={"/login"}>Logout</Link>
-                    </div>
+            <div className="topnav">
+                <NavLink to={"/HomePageStaff"}>Home</NavLink>
+                <NavLink to={"/StaffSubmissionPage"}>Staff Submission</NavLink>
+                <div className="edit-acc">
+                    <p>Xin chào</p><a href="AccountInfo">Nguyễn Văn B</a>
+                    <Link to={"/login"}>Logout</Link>
                 </div>
-                {
-                    homepagestaffitem.map((homepagestaffitem, index) => (
-                        <div className="info-table">
-                            <h3>{homepagestaffitem.name}</h3>
-                            <p><strong>{homepagestaffitem.age}</strong></p>
-                            <p><strong>{homepagestaffitem.phone}</strong></p>
-                            <span>{homepagestaffitem.createdate}</span>
-                        </div>
-                    ))
-                }
             </div>
+            {
+                homepagestaffitem.map((homepagestaffitem, index) => (
+                    <div className="info-table">
+                        <h3>{homepagestaffitem.name}</h3>
+                        <p><strong>{homepagestaffitem.age}</strong></p>
+                        <p><strong>{homepagestaffitem.phone}</strong></p>
+                        <span>{homepagestaffitem.createdate}</span>
+                    </div>
+                ))
+            }
         </div>
     )
 }
